@@ -99,7 +99,6 @@ body{background:var(--ink);color:var(--t1);font-family:'Lato',sans-serif;font-we
 #cakeSection.show{display:flex}
 .cake-title{font-family:'Dancing Script',cursive;font-weight:700;font-size:clamp(2rem,6vw,3.5rem);background:linear-gradient(135deg,var(--petal),var(--blush),var(--lavender));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 20px rgba(196,56,110,.5));}
 .cake-wrap{position:relative;display:flex;flex-direction:column;align-items:center;gap:0}
-/* Candles row */
 .candles-row{display:flex;gap:8px;align-items:flex-end;justify-content:center;margin-bottom:-2px;flex-wrap:wrap;max-width:600px;}
 .candle{display:flex;flex-direction:column;align-items:center;cursor:pointer;position:relative;}
 .flame{width:10px;height:16px;position:relative;margin-bottom:1px;transition:all .3s;}
@@ -111,8 +110,6 @@ body{background:var(--ink);color:var(--t1);font-family:'Lato',sans-serif;font-we
 .candle-body.med{height:34px}
 .candle-body.tall{height:42px}
 .candle-drip{position:absolute;top:4px;left:50%;transform:translateX(-50%);width:4px;height:6px;background:rgba(245,184,208,.6);border-radius:0 0 3px 3px;}
-
-/* Cake tiers */
 .cake-tier{border-radius:4px;position:relative;overflow:hidden;}
 .cake-top{width:200px;height:50px;background:linear-gradient(135deg,rgba(139,56,212,.9),rgba(90,31,168,.95));border:2px solid rgba(184,122,232,.4);display:flex;align-items:center;justify-content:center;}
 .cake-mid{width:280px;height:60px;background:linear-gradient(135deg,rgba(196,56,110,.85),rgba(139,56,212,.85));border:2px solid rgba(232,112,154,.35);margin-top:-1px;display:flex;align-items:center;justify-content:center;}
@@ -123,7 +120,6 @@ body{background:var(--ink);color:var(--t1);font-family:'Lato',sans-serif;font-we
 .cake-shimmer{position:absolute;inset:0;background:linear-gradient(135deg,transparent 30%,rgba(255,255,255,.06) 50%,transparent 70%);animation:shimmer 3s ease-in-out infinite;}
 @keyframes shimmer{0%,100%{transform:translateX(-100%)}50%{transform:translateX(100%)}}
 .cake-num{font-family:'Dancing Script',cursive;font-weight:700;font-size:1.8rem;color:rgba(255,255,255,.9);text-shadow:0 0 20px rgba(196,56,110,.8);}
-
 .blow-hint{font-family:'Cinzel',serif;font-size:9px;letter-spacing:.3em;color:var(--lavender);text-transform:uppercase;animation:floatHint 2s ease-in-out infinite;}
 @keyframes floatHint{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 .blow-btn{font-family:'Cinzel',serif;font-size:9px;letter-spacing:.3em;color:var(--t1);background:linear-gradient(135deg,var(--lift),var(--glow));border:1px solid rgba(184,122,232,.4);padding:12px 28px;cursor:pointer;text-transform:uppercase;transition:all .3s;border-radius:2px;}
@@ -169,7 +165,7 @@ body{background:var(--ink);color:var(--t1);font-family:'Lato',sans-serif;font-we
 .lb-x{font-family:'Cinzel',serif;font-size:8px;letter-spacing:.35em;color:var(--t3);background:transparent;border:1px solid rgba(139,56,212,.3);padding:9px 26px;cursor:pointer;text-transform:uppercase;transition:all .3s}
 .lb-x:hover{border-color:var(--lavender);color:var(--t1)}
 
-/* ═══ SCENE 5 — LETTER (PERMANENT) ═══ */
+/* ═══ SCENE 5 — LETTER ═══ */
 #s5{background:var(--mid)}
 #s5::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 20% 60%,rgba(196,56,110,.04),transparent),radial-gradient(ellipse 60% 80% at 80% 40%,rgba(90,31,168,.05),transparent);pointer-events:none}
 .letter-wrap{max-width:660px;width:100%;margin:0 auto}
@@ -182,14 +178,10 @@ body{background:var(--ink);color:var(--t1);font-family:'Lato',sans-serif;font-we
 .l-stamp{position:absolute;top:1.6rem;right:1.6rem;width:50px;height:62px;border:1px solid rgba(139,56,212,.3);background:rgba(42,10,98,.4);display:flex;align-items:center;justify-content:center;font-size:1.5rem}
 .l-date{font-family:'Cinzel',serif;font-size:8px;letter-spacing:.45em;color:var(--t4);text-transform:uppercase;margin-bottom:2rem;display:block;}
 .l-dear{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:2.8rem;margin-bottom:1.5rem;display:block;background:linear-gradient(135deg,var(--lavender),var(--mist));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-/* Permanent letter body — rendered as beautiful text, not textarea */
 .l-body-text{width:100%;color:var(--t1);font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.1rem;line-height:2.4;letter-spacing:.02em;white-space:pre-wrap;word-break:break-word;}
 .l-rule{width:100%;height:1px;background:linear-gradient(to right,transparent,rgba(196,56,110,.4),rgba(139,56,212,.4),transparent);margin:2rem 0}
 .l-sign{font-family:'Dancing Script',cursive;font-size:2rem;font-weight:700;text-align:right;display:block;background:linear-gradient(135deg,var(--petal),var(--blush));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .l-borahae{font-family:'Noto Serif KR',serif;font-size:.8rem;color:var(--t4);text-align:right;letter-spacing:.2em;display:block;margin-top:.4rem;}
-/* Letter typewriter effect */
-.l-body-text .typed-char{opacity:0;animation:charReveal .04s forwards;}
-@keyframes charReveal{to{opacity:1}}
 
 /* ═══ SCENE 6 — BTS ═══ */
 #s6{background:linear-gradient(180deg,var(--mid),var(--deep))}
@@ -265,7 +257,7 @@ body{background:var(--ink);color:var(--t1);font-family:'Lato',sans-serif;font-we
 .p-bar:nth-child(4){animation-duration:.63s;height:9px;animation-delay:.04s}
 .p-bars.off .p-bar{animation-play-state:paused;transform:scaleY(.15)}
 
-/* ═══ SCENE 8 — WISHES (GUESTBOOK) ═══ */
+/* ═══ SCENE 8 — WISHES ═══ */
 #s8{background:linear-gradient(180deg,var(--deep),var(--mid))}
 .wish-wrap{max-width:600px;width:100%;margin:0 auto}
 .wish-form{display:flex;border:1px solid rgba(139,56,212,.25);margin-bottom:1rem;}
@@ -276,19 +268,10 @@ body{background:var(--ink);color:var(--t1);font-family:'Lato',sans-serif;font-we
 .wish-send{font-family:'Cinzel',serif;font-size:8px;letter-spacing:.25em;color:var(--lavender);background:rgba(42,10,98,.6);border:none;border-left:1px solid rgba(139,56,212,.2);padding:14px 20px;cursor:pointer;text-transform:uppercase;white-space:nowrap;transition:all .3s;}
 .wish-send:hover{background:rgba(90,31,168,.5);color:#fff}
 .wish-count{font-family:'Cinzel',serif;font-size:8px;letter-spacing:.2em;color:var(--t4);text-align:center;margin-bottom:1.4rem;}
-.wish-preview{text-align:left;max-height:260px;overflow-y:auto;padding-right:4px;}
-.wish-preview::-webkit-scrollbar{width:2px}
-.wish-preview::-webkit-scrollbar-track{background:transparent}
-.wish-preview::-webkit-scrollbar-thumb{background:var(--violet);border-radius:1px}
-.wish-item{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid rgba(42,10,98,.5);animation:fadeUp .5s both;}
-.w-avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--lift),var(--glow));display:flex;align-items:center;justify-content:center;font-family:'Dancing Script',cursive;font-size:1rem;color:#fff;flex-shrink:0;margin-top:2px;}
-.w-body{flex:1}
-.w-name{font-family:'Cinzel',serif;font-size:8px;letter-spacing:.15em;color:var(--petal);text-transform:uppercase;margin-bottom:.25rem;}
-.w-text{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--t1);line-height:1.8;}
-.w-time{font-family:'Lato',sans-serif;font-size:.7rem;color:var(--t4);margin-top:.2rem;}
 /* View all modal */
-.view-wishes-btn{font-family:'Cinzel',serif;font-size:9px;letter-spacing:.35em;color:var(--lavender);background:transparent;border:1px solid rgba(139,56,212,.3);padding:12px 28px;cursor:pointer;text-transform:uppercase;transition:all .3s;margin-top:1.2rem;display:inline-block;}
+.view-wishes-btn{font-family:'Cinzel',serif;font-size:9px;letter-spacing:.35em;color:var(--lavender);background:transparent;border:1px solid rgba(139,56,212,.3);padding:12px 28px;cursor:pointer;text-transform:uppercase;transition:all .3s;margin-top:.5rem;display:inline-block;}
 .view-wishes-btn:hover{background:rgba(42,10,98,.5);color:#fff;border-color:var(--lavender)}
+.wish-sent-msg{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:var(--petal);text-align:center;margin-bottom:.8rem;min-height:1.5rem;transition:opacity .4s;}
 #wishModal{display:none;position:fixed;inset:0;background:rgba(4,1,10,.95);z-index:9985;align-items:center;justify-content:center;padding:2rem;}
 #wishModal.open{display:flex}
 .wish-modal-inner{background:linear-gradient(160deg,rgba(24,4,64,.97),rgba(8,1,18,.98));border:1px solid rgba(139,56,212,.3);max-width:640px;width:100%;max-height:85vh;display:flex;flex-direction:column;position:relative;}
@@ -301,6 +284,10 @@ body{background:var(--ink);color:var(--t1);font-family:'Lato',sans-serif;font-we
 .wm-list::-webkit-scrollbar-thumb{background:var(--violet);border-radius:1px}
 .wm-empty{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--t4);text-align:center;padding:2rem;font-size:1.1rem;}
 .wm-item{padding:1.2rem 0;border-bottom:1px solid rgba(42,10,98,.4);display:flex;gap:14px;}
+.w-avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--lift),var(--glow));display:flex;align-items:center;justify-content:center;font-family:'Dancing Script',cursive;font-size:1rem;color:#fff;flex-shrink:0}
+.w-name{font-family:'Cinzel',serif;font-size:8px;letter-spacing:.15em;color:var(--petal);text-transform:uppercase;margin-bottom:.25rem;}
+.w-text{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--t1);line-height:1.8;}
+.w-time{font-family:'Lato',sans-serif;font-size:.7rem;color:var(--t4);margin-top:.2rem;}
 
 /* ═══ SCENE 9 — FINALE ═══ */
 #s9{background:var(--mid)}
@@ -500,14 +487,11 @@ body{background:var(--ink);color:var(--t1);font-family:'Lato',sans-serif;font-we
     <span class="ck-army">ARMY Forever 💜</span>
   </div>
 
-  <!-- BIRTHDAY CAKE — shows when countdown = 0 -->
   <div id="cakeSection">
     <div class="cake-title">Happy Birthday Afiya! 🎂</div>
     <div class="blow-hint" id="blowHint">🕯️ Make a wish and blow out the candles!</div>
     <div class="cake-wrap">
-      <!-- Candles -->
       <div class="candles-row" id="candlesRow"></div>
-      <!-- Cake tiers -->
       <div class="cake-tier cake-top">
         <div class="cake-frosting"></div>
         <div class="cake-shimmer"></div>
@@ -576,7 +560,7 @@ body{background:var(--ink);color:var(--t1);font-family:'Lato',sans-serif;font-we
 
 <div class="divider r"><div class="div-line"></div><div class="div-dot">✦</div><div class="div-line"></div></div>
 
-<!-- ══ SCENE 5 — PERMANENT LETTER ══ -->
+<!-- ══ SCENE 5 — LETTER ══ -->
 <section class="sec" id="s5" style="min-height:auto;padding:5.5rem 2rem">
   <span class="section-label r">💌 From the heart</span>
   <h2 class="section-title r d1">A <em>Letter</em> to Afiya</h2>
@@ -588,15 +572,12 @@ body{background:var(--ink);color:var(--t1);font-family:'Lato',sans-serif;font-we
       <div class="l-stamp">💜</div>
       <span class="l-date" id="letterDate">13 · July · 2026 &nbsp;·&nbsp; For Afiya, with love</span>
       <span class="l-dear">Dear Afiya,</span>
-      <!-- ══ তোমার চিঠি এখানে লেখা আছে — শুধু এই text টা পাল্টাও ══ -->
       <div class="l-body-text" id="letterBody">এখানে তোমার চিঠি লেখো।
 
 এই অংশটা HTML ফাইলে খুঁজে নাও এবং তোমার মনের কথাগুলো লিখে দাও। এই লেখাটা সরিয়ে তোমার নিজের কথা লিখলেই হবে।
 
 Afiya কে যা বলতে চাও সব এখানে থাকবে — চিরকালের জন্য। 💜</div>
-      <!-- ══════════════════════════════════════════════════════════════ -->
       <div class="l-rule"></div>
-      <!-- নামের জায়গায় তোমার নাম লেখো এখানে ↓ -->
       <span class="l-sign" id="letterSign">— তোমার নাম এখানে লেখো</span>
       <span class="l-borahae">보라해 · I purple you · 💜</span>
     </div>
@@ -650,10 +631,9 @@ Afiya কে যা বলতে চাও সব এখানে থাকব�
       <input class="wish-input" id="wishIn" type="text" placeholder="Write a birthday wish for Afiya... 💜" maxlength="200" onkeydown="if(event.key==='Enter')addWish()"/>
       <button class="wish-send" onclick="addWish()">Send 💜</button>
     </div>
+    <div class="wish-sent-msg r d4" id="wishSentMsg"></div>
     <div class="wish-count r d4" id="wishCount">💜 0 wishes so far</div>
-    <!-- Latest 3 wishes preview -->
-    <div class="wish-preview r d5" id="wishPreview"></div>
-    <div style="text-align:center" class="r d6">
+    <div style="text-align:center" class="r d5">
       <button class="view-wishes-btn" onclick="openWishModal()">💜 View All Wishes</button>
     </div>
   </div>
@@ -752,38 +732,77 @@ window.addEventListener('scroll',()=>{
   init();draw();window.addEventListener('resize',init);
 })();
 
-/* ════ BTS CONSTELLATION ════ */
+/* ════ BTS CONSTELLATION — glow removed, dots clean, lines animated ════ */
 (()=>{
   const c=document.getElementById('c6');if(!c)return;
   const x=c.getContext('2d');
   const NAMES=['RM','Jin','Suga','J-Hope','Jimin','V','JK'];
   let pts=[],W,H,tick=0;
-  const init=()=>{W=c.width=c.offsetWidth;H=c.height=c.offsetHeight;const cx=W/2,cy=H/2,r=Math.min(W,H)*.38;pts=NAMES.map((n,i)=>{const a=(i/NAMES.length)*Math.PI*2-Math.PI/2;return{x:cx+Math.cos(a)*r,y:cy+Math.sin(a)*r,name:n,phase:Math.random()*Math.PI*2};});pts.push({x:cx,y:cy,name:'Afiya',center:true,phase:0});};
+  const init=()=>{
+    W=c.width=c.offsetWidth;H=c.height=c.offsetHeight;
+    const cx=W/2,cy=H/2,r=Math.min(W,H)*.38;
+    pts=NAMES.map((n,i)=>{
+      const a=(i/NAMES.length)*Math.PI*2-Math.PI/2;
+      return{x:cx+Math.cos(a)*r,y:cy+Math.sin(a)*r,name:n,phase:Math.random()*Math.PI*2};
+    });
+    pts.push({x:cx,y:cy,name:'Afiya',center:true,phase:0});
+  };
   const draw=()=>{
-    x.clearRect(0,0,W,H);tick+=0.018;const ctr=pts[pts.length-1];
+    x.clearRect(0,0,W,H);tick+=0.018;
+    const ctr=pts[pts.length-1];
+
+    /* —— animated dashed lines from center to each member —— */
     pts.slice(0,-1).forEach((p,i)=>{
-      const next=pts[(i+1)%7],sa=0.45+0.25*Math.sin(tick+p.phase);
-      const sg=x.createLinearGradient(ctr.x,ctr.y,p.x,p.y);sg.addColorStop(0,'rgba(196,56,110,'+sa+')');sg.addColorStop(.5,'rgba(139,56,212,'+(sa*.7)+')');sg.addColorStop(1,'rgba(184,122,232,'+(sa*.5)+')');
-      x.globalAlpha=1;x.strokeStyle=sg;x.lineWidth=1.2;x.setLineDash([6,5]);x.lineDashOffset=-tick*18;x.beginPath();x.moveTo(ctr.x,ctr.y);x.lineTo(p.x,p.y);x.stroke();
-      x.strokeStyle='rgba(139,56,212,'+(0.3+0.2*Math.sin(tick*1.3+i))+')';x.lineWidth=.9;x.setLineDash([4,8]);x.lineDashOffset=tick*12;x.beginPath();x.moveTo(p.x,p.y);x.lineTo(next.x,next.y);x.stroke();
+      const next=pts[(i+1)%7];
+      /* center → member line (dot-dash, animated) */
+      const sa=0.45+0.25*Math.sin(tick+p.phase);
+      const sg=x.createLinearGradient(ctr.x,ctr.y,p.x,p.y);
+      sg.addColorStop(0,'rgba(196,56,110,'+sa+')');
+      sg.addColorStop(.5,'rgba(139,56,212,'+(sa*.7)+')');
+      sg.addColorStop(1,'rgba(184,122,232,'+(sa*.5)+')');
+      x.globalAlpha=1;x.strokeStyle=sg;x.lineWidth=1.2;
+      x.setLineDash([6,5]);x.lineDashOffset=-tick*18;
+      x.beginPath();x.moveTo(ctr.x,ctr.y);x.lineTo(p.x,p.y);x.stroke();
+
+      /* outer ring connecting members (subtle dashed) */
+      x.strokeStyle='rgba(139,56,212,'+(0.3+0.2*Math.sin(tick*1.3+i))+')';
+      x.lineWidth=.9;x.setLineDash([4,8]);x.lineDashOffset=tick*12;
+      x.beginPath();x.moveTo(p.x,p.y);x.lineTo(next.x,next.y);x.stroke();
     });
     x.setLineDash([]);x.lineDashOffset=0;
+
+    /* —— member dots — plain, no glow/radial gradient —— */
     pts.slice(0,-1).forEach(p=>{
-      const pulse=0.5+0.5*Math.sin(tick*1.1+p.phase);
-      const grad=x.createRadialGradient(p.x,p.y,0,p.x,p.y,20);grad.addColorStop(0,'rgba(184,122,232,'+(0.35*pulse)+')');grad.addColorStop(1,'rgba(139,56,212,0)');
-      x.globalAlpha=1;x.fillStyle=grad;x.beginPath();x.arc(p.x,p.y,20,0,Math.PI*2);x.fill();
-      x.globalAlpha=0.85+0.15*pulse;x.fillStyle='#dbbff5';x.beginPath();x.arc(p.x,p.y,5.5,0,Math.PI*2);x.fill();
-      x.globalAlpha=1;x.fillStyle='#fff';x.beginPath();x.arc(p.x,p.y,2.2,0,Math.PI*2);x.fill();
-      x.globalAlpha=1;x.fillStyle='#fff';x.font='bold 13px "Cinzel",serif';x.textAlign='center';x.shadowColor='rgba(139,56,212,1)';x.shadowBlur=14;x.fillText(p.name,p.x,p.y+26);x.shadowColor='rgba(0,0,0,.8)';x.shadowBlur=6;x.fillText(p.name,p.x,p.y+26);x.shadowBlur=0;
+      /* solid dot */
+      x.globalAlpha=1;
+      x.fillStyle='#dbbff5';
+      x.beginPath();x.arc(p.x,p.y,5.5,0,Math.PI*2);x.fill();
+      /* white center pinpoint */
+      x.fillStyle='#ffffff';
+      x.beginPath();x.arc(p.x,p.y,2.2,0,Math.PI*2);x.fill();
+      /* label — crisp, high contrast */
+      x.font='bold 13px "Cinzel",serif';
+      x.textAlign='center';
+      x.globalAlpha=1;
+      x.fillStyle='#ffffff';
+      x.shadowColor='rgba(0,0,0,.95)';x.shadowBlur=8;
+      x.fillText(p.name,p.x,p.y+26);
+      x.shadowBlur=0;
     });
-    const cp=0.5+0.5*Math.sin(tick*.9);
-    const cg2=x.createRadialGradient(ctr.x,ctr.y,0,ctr.x,ctr.y,55);cg2.addColorStop(0,'rgba(196,56,110,'+(0.22*cp)+')');cg2.addColorStop(1,'rgba(139,56,212,0)');
-    x.globalAlpha=1;x.fillStyle=cg2;x.beginPath();x.arc(ctr.x,ctr.y,55,0,Math.PI*2);x.fill();
-    const cg1=x.createRadialGradient(ctr.x,ctr.y,0,ctr.x,ctr.y,22);cg1.addColorStop(0,'rgba(232,112,154,'+(0.7*cp)+')');cg1.addColorStop(1,'rgba(196,56,110,0)');
-    x.fillStyle=cg1;x.beginPath();x.arc(ctr.x,ctr.y,22,0,Math.PI*2);x.fill();
-    x.globalAlpha=0.95;x.fillStyle='#f5b8d0';x.beginPath();x.arc(ctr.x,ctr.y,9,0,Math.PI*2);x.fill();
-    x.globalAlpha=1;x.fillStyle='#fff';x.beginPath();x.arc(ctr.x,ctr.y,4,0,Math.PI*2);x.fill();
-    x.fillStyle='#fff';x.font='bold 15px "Cinzel",serif';x.textAlign='center';x.shadowColor='rgba(196,56,110,1)';x.shadowBlur=20;x.fillText('Afiya',ctr.x,ctr.y+30);x.shadowColor='rgba(0,0,0,.9)';x.shadowBlur=8;x.fillText('Afiya',ctr.x,ctr.y+30);x.shadowBlur=0;
+
+    /* —— Afiya center dot — plain, prominent —— */
+    x.globalAlpha=1;
+    x.fillStyle='#f5b8d0';
+    x.beginPath();x.arc(ctr.x,ctr.y,9,0,Math.PI*2);x.fill();
+    x.fillStyle='#ffffff';
+    x.beginPath();x.arc(ctr.x,ctr.y,4,0,Math.PI*2);x.fill();
+    x.font='bold 15px "Cinzel",serif';
+    x.textAlign='center';
+    x.fillStyle='#ffffff';
+    x.shadowColor='rgba(0,0,0,.95)';x.shadowBlur=10;
+    x.fillText('Afiya',ctr.x,ctr.y+30);
+    x.shadowBlur=0;
+
     x.globalAlpha=1;requestAnimationFrame(draw);
   };
   init();draw();new ResizeObserver(init).observe(c);
@@ -876,13 +895,13 @@ document.getElementById('lb').addEventListener('click',e=>{if(e.target===e.curre
 
 /* ════ BTS MEMBERS ════ */
 const MEMBERS=[
-  {kr:'알엠',en:'RM',   msg:"Afiya, your curiosity and intelligence light up every room. You approach life with such open-eyed wonder — never stop exploring. 생일 축하해요! 💜"},
-  {kr:'진',  en:'Jin',  msg:"Worldwide beautiful Afiya! Your smile could light up the entire universe. Eat well, laugh loudly, and know you are deeply loved. 석진이가 사랑해! 💜"},
-  {kr:'슈가',en:'Suga', msg:"Dreams don't have expiry dates, Afiya. The fire inside you is real and it will take you places. Never let it go out. 💜"},
+  {kr:'알엠',en:'RM',     msg:"Afiya, your curiosity and intelligence light up every room. You approach life with such open-eyed wonder — never stop exploring. 생일 축하해요! 💜"},
+  {kr:'진',  en:'Jin',   msg:"Worldwide beautiful Afiya! Your smile could light up the entire universe. Eat well, laugh loudly, and know you are deeply loved. 석진이가 사랑해! 💜"},
+  {kr:'슈가',en:'Suga',  msg:"Dreams don't have expiry dates, Afiya. The fire inside you is real and it will take you places. Never let it go out. 💜"},
   {kr:'제이홉',en:'J-Hope',msg:"You are someone's sunshine, Afiya. Your energy, your warmth — it changes the atmosphere of every room you walk into. 💜"},
-  {kr:'지민',en:'Jimin',msg:"You have so much beauty, so much charm, so much heart. Promise me you'll love yourself first — always. 💜"},
-  {kr:'뷔',  en:'V',    msg:"Life is a canvas and you paint it in the most extraordinary colors. Stay weird, stay magical, stay completely yourself. 보라해! 💜"},
-  {kr:'정국',en:'JK',   msg:"Golden girl Afiya — you are brave, talented, and enough. Stay strong and stay magical. 생일 축하합니다! 💜"},
+  {kr:'지민',en:'Jimin', msg:"You have so much beauty, so much charm, so much heart. Promise me you'll love yourself first — always. 💜"},
+  {kr:'뷔',  en:'V',     msg:"Life is a canvas and you paint it in the most extraordinary colors. Stay weird, stay magical, stay completely yourself. 보라해! 💜"},
+  {kr:'정국',en:'JK',    msg:"Golden girl Afiya — you are brave, talented, and enough. Stay strong and stay magical. 생일 축하합니다! 💜"},
 ];
 MEMBERS.forEach(m=>{
   const c=document.createElement('div');c.className='mc';
@@ -899,12 +918,12 @@ MEMBERS.forEach(m=>{
 const SONGS=[
   {emoji:'🌌',title:'Dynamite',     titleKr:'다이너마이트',       desc:'For when you need to feel unstoppable.',       file:'songs/dynamite.mp3'},
   {emoji:'💜',title:'Life Goes On', titleKr:'라이프 고즈 온',     desc:'Life continues — and so do you.',              file:'songs/life-goes-on.mp3'},
-  {emoji:'🌙',title:'Spring Day',   titleKr:'봄날',                desc:'This one feels like a warm hug from far away.',file:'songs/spring-day.mp3'},
-  {emoji:'⭐',title:'Boy With Luv', titleKr:'작은 것들을 위한 시', desc:'Playful, bright and overflowing with joy.',    file:'songs/boy-with-luv.mp3'},
-  {emoji:'🌸',title:'Butter',       titleKr:'버터',                desc:'Smooth, sweet and impossible to ignore.',      file:'songs/butter.mp3'},
-  {emoji:'🔥',title:'Fire',         titleKr:'불타오르네',          desc:'For the days when you need to own the world.',  file:'songs/fire.mp3'},
-  {emoji:'🌊',title:'DNA',          titleKr:'DNA',                 desc:"It's written in your very DNA, Afiya.",        file:'songs/dna.mp3'},
-  {emoji:'💫',title:'Magic Shop',   titleKr:'매직샵',              desc:'A place in your heart that will always be there.',file:'songs/magic-shop.mp3'},
+  {emoji:'🌙',title:'Spring Day',   titleKr:'봄날',               desc:'This one feels like a warm hug from far away.',file:'songs/spring-day.mp3'},
+  {emoji:'⭐',title:'Boy With Luv', titleKr:'작은 것들을 위한 시', desc:'Playful, bright and overflowing with joy.',   file:'songs/boy-with-luv.mp3'},
+  {emoji:'🌸',title:'Butter',       titleKr:'버터',               desc:'Smooth, sweet and impossible to ignore.',     file:'songs/butter.mp3'},
+  {emoji:'🔥',title:'Fire',         titleKr:'불타오르네',          desc:'For the days when you need to own the world.',file:'songs/fire.mp3'},
+  {emoji:'🌊',title:'DNA',          titleKr:'DNA',                desc:"It's written in your very DNA, Afiya.",       file:'songs/dna.mp3'},
+  {emoji:'💫',title:'Magic Shop',   titleKr:'매직샵',             desc:'A place in your heart that will always be there.',file:'songs/magic-shop.mp3'},
 ];
 const aud=new Audio();aud.volume=0.8;
 let curIdx=-1,isPlaying=false,timerRAF=null;
@@ -935,7 +954,10 @@ function uiOn(idx){uiAllOff();document.getElementById('sc'+idx).classList.add('p
 function uiOff(idx){if(idx>=0){document.getElementById('sc'+idx).classList.remove('playing');document.getElementById('sb'+idx).textContent='▶';}document.getElementById('pPlay').textContent='▶';document.getElementById('pDisc').classList.remove('spinning');document.getElementById('pBars').classList.add('off');document.getElementById('pStatus').textContent='paused';}
 
 /* ════════════════════════════════════════
-   GUESTBOOK WISHES — Artifact shared storage
+   GUESTBOOK WISHES
+   — wishes stored in shared Artifact storage
+   — সেন্ড করার পর শুধু modal-এ দেখাবে
+   — প্রতিবার ঢুকলেও wishes থাকবে
 ════════════════════════════════════════ */
 const WISHES_KEY='afiya_bday_wishes_2026';
 let allWishes=[];
@@ -946,40 +968,31 @@ async function loadWishes(){
     if(res&&res.value){allWishes=JSON.parse(res.value);}
     else{allWishes=[];}
   }catch(e){allWishes=[];}
-  renderWishes();
+  updateWishCount();
 }
 
 async function saveWishes(){
   try{await window.storage.set(WISHES_KEY,JSON.stringify(allWishes),true);}catch(e){}
 }
 
-function renderWishes(){
+function updateWishCount(){
   const count=allWishes.length;
   document.getElementById('wishCount').textContent=`💜 ${count} ${count===1?'wish':'wishes'} for Afiya`;
-  const preview=document.getElementById('wishPreview');
-  const recent=allWishes.slice(-3).reverse();
-  preview.innerHTML=recent.length?recent.map(w=>`
-    <div class="wish-item">
-      <div class="w-avatar">${(w.name||'?')[0].toUpperCase()}</div>
-      <div class="w-body">
-        <div class="w-name">${w.name||'Someone special'}</div>
-        <div class="w-text">${w.text}</div>
-        <div class="w-time">${w.time||''}</div>
-      </div>
-    </div>`).join(''):'<div style="font-family:\'Cormorant Garamond\',serif;font-style:italic;color:var(--t4);text-align:center;padding:1.5rem;font-size:1.05rem">Be the first to wish Afiya! 💜</div>';
-  renderModal();
 }
 
 function renderModal(){
   const list=document.getElementById('wmList');
-  if(!allWishes.length){list.innerHTML='<div class="wm-empty">No wishes yet — be the first! 💜</div>';return;}
+  if(!allWishes.length){
+    list.innerHTML='<div class="wm-empty">No wishes yet — be the first! 💜</div>';
+    return;
+  }
   list.innerHTML=[...allWishes].reverse().map(w=>`
     <div class="wm-item">
-      <div class="w-avatar" style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--lift),var(--glow));display:flex;align-items:center;justify-content:center;font-family:'Dancing Script',cursive;font-size:1.1rem;color:#fff;flex-shrink:0">${(w.name||'?')[0].toUpperCase()}</div>
-      <div class="w-body">
-        <div class="w-name" style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:.15em;color:var(--petal);text-transform:uppercase;margin-bottom:.3rem">${w.name||'Someone special'}</div>
-        <div class="w-text" style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--t1);line-height:1.8">${w.text}</div>
-        <div class="w-time" style="font-family:'Lato',sans-serif;font-size:.7rem;color:var(--t4);margin-top:.25rem">${w.time||''}</div>
+      <div class="w-avatar" style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--lift),var(--glow));display:flex;align-items:center;justify-content:center;font-family:'Dancing Script',cursive;font-size:1.1rem;color:#fff;flex-shrink:0;margin-top:2px">${(w.name||'?')[0].toUpperCase()}</div>
+      <div>
+        <div class="w-name">${w.name||'Someone special'}</div>
+        <div class="w-text">${w.text}</div>
+        <div class="w-time">${w.time||''}</div>
       </div>
     </div>`).join('');
 }
@@ -1001,8 +1014,13 @@ async function addWish(){
   allWishes.push({name,text,time:timeStr});
   inp.value='';
   await saveWishes();
-  renderWishes();
+  updateWishCount();
   spawnPetals(30);
+  /* সেন্ট মেসেজ দেখাও */
+  const sentMsg=document.getElementById('wishSentMsg');
+  sentMsg.textContent='💜 Wish sent! Click "View All Wishes" to see it.';
+  sentMsg.style.opacity='1';
+  setTimeout(()=>{sentMsg.style.opacity='0';setTimeout(()=>{sentMsg.textContent='';},400);},3500);
 }
 
 loadWishes();
