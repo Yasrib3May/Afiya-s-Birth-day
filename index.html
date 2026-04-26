@@ -525,7 +525,7 @@ body{background:var(--ink);color:var(--t1);font-family:'Lato',sans-serif;font-we
   <div id="cakeSection">
     <div class="cake-title">Happy Birthday Afiya! 🎂</div>
     <div class="blow-hint" id="blowHint">🕯️ Make a wish and blow out the candles!</div>
-    <canvas id="cakeCanvas" width="460" height="340" style="max-width:100%;cursor:pointer;display:block;margin:0 auto" onclick="cakeCanvasClick(event)"></canvas>
+    <canvas id="cakeCanvas" width="500" height="360" style="max-width:100%;cursor:pointer;display:block;margin:0 auto" onclick="cakeCanvasClick(event)"></canvas>
     <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:center;margin-top:.5rem">
       <button class="blow-btn" id="blowAllBtn" onclick="blowAllCandles()">💨 Blow All Candles!</button>
       <button class="blow-btn" onclick="relightCandles()" style="background:linear-gradient(135deg,rgba(42,10,98,.6),rgba(90,31,168,.5));font-size:8px">🕯️ Relight</button>
@@ -846,13 +846,13 @@ function drawCake(){
   /* ── dimensions ── */
   const cx=W/2;
   // Plate
-  const plateW=340, plateH=14, plateY=H-30;
+  const plateW=380, plateH=14, plateY=H-28;
   // Bot tier
-  const botW=300, botH=72, botY=plateY-botH;
+  const botW=340, botH=72, botY=plateY-botH;
   // Mid tier
-  const midW=230, midH=58, midY=botY-midH;
-  // Top tier (holds candles)
-  const topW=170, topH=48, topY=midY-topH;
+  const midW=270, midH=58, midY=botY-midH;
+  // Top tier — must fit 17 candles: 17*(6+3)-3 = 147px, give 220px to be safe
+  const topW=220, topH=50, topY=midY-topH;
 
   /* helper: rounded rect */
   function rRect(x,y,w,h,r,fillStyle,strokeStyle){
@@ -917,11 +917,14 @@ function drawCake(){
 
   /* ── CANDLES on top tier ── */
   const numC=totalCandles;
-  const candleW=8, spacing=4;
+  // Auto-fit: compute candleW+spacing to fill topW with padding
+  const padding=10;
+  const availW=topW-padding*2;
+  const spacing=2;
+  const candleW=Math.floor((availW-spacing*(numC-1))/numC); // ~10px each
   const totalRowW=numC*(candleW+spacing)-spacing;
   const startX=cx-totalRowW/2;
-  // heights alternating: tall=32 med=24 small=18
-  const hPat=[24,32,18,28,20,30,18,26,22,30,18,28,20,32,18,26,24];
+  const hPat=[22,30,16,26,20,30,16,24,20,30,16,26,20,30,16,26,22];
 
   for(let i=0;i<numC;i++){
     const ch=hPat[i]||22;
