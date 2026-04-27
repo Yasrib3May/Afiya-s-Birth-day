@@ -237,7 +237,9 @@ body{background:var(--ink);color:var(--t1);font-family:'Lato',sans-serif;font-we
 .l-corner.br{bottom:-1px;right:-1px;border-width:0 1px 1px 0}
 .l-stamp{position:absolute;top:1.6rem;right:1.6rem;width:54px;height:66px;border:1px solid rgba(139,56,212,.3);background:rgba(42,10,98,.4);display:flex;align-items:center;justify-content:center;overflow:hidden;}
 .l-stamp img{width:100%;height:100%;object-fit:cover;display:block;}
-.l-date{font-family:'Cinzel',serif;font-size:8px;letter-spacing:.45em;color:var(--t4);text-transform:uppercase;margin-bottom:2rem;display:block;}
+.l-date{font-family:'Cinzel',serif;font-size:8px;letter-spacing:.45em;color:var(--t4);text-transform:uppercase;margin-bottom:2rem;display:block;line-height:2;}
+.l-date .l-date-day{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.6rem;font-weight:300;letter-spacing:.06em;background:linear-gradient(135deg,var(--lavender),var(--mist));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;margin-bottom:.1rem;}
+.l-date .l-date-sub{font-family:'Cinzel',serif;font-size:15px;letter-spacing:.5em;color:var(--t3);text-transform:uppercase;display:block;}
 .l-dear{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:2.8rem;margin-bottom:1.5rem;display:block;background:linear-gradient(135deg,var(--lavender),var(--mist));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .l-body-text{width:100%;color:var(--t1);font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.1rem;line-height:2.4;letter-spacing:.02em;white-space:pre-wrap;word-break:break-word;}
 .l-rule{width:100%;height:1px;background:linear-gradient(to right,transparent,rgba(196,56,110,.4),rgba(139,56,212,.4),transparent);margin:2rem 0}
@@ -636,7 +638,7 @@ body{background:var(--ink);color:var(--t1);font-family:'Lato',sans-serif;font-we
 <section class="sec" id="s4" style="min-height:auto;padding:5.5rem 2rem">
   <span class="section-label r">📸 Her moments</span>
   <h2 class="section-title r d1">Afiya's <em>Gallery</em></h2>
-  <div class="section-kr r d2">추억의 갤러리 — tap any slot to add a photo</div>
+  <div class="member-hint">추억의 갤러리 —👇 tap to enlarge</div>
   <div class="gallery r d3" id="gallery"></div>
 </section>
 
@@ -652,15 +654,15 @@ body{background:var(--ink);color:var(--t1);font-family:'Lato',sans-serif;font-we
       <div class="l-corner tl"></div><div class="l-corner tr"></div>
       <div class="l-corner bl"></div><div class="l-corner br"></div>
       <div class="l-stamp"><img src="photos/stamp.jpg" alt="stamp" onerror="this.style.opacity='.3'" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
-      <span class="l-date" id="letterDate">13 July 2026<br/>For Afiya,</span>
-       <span class="l-dear">Dear Afiya,</span>
+      <span class="l-date" id="letterDate"><span class="l-date-day">13 · July · 2026</span><span class="l-date-sub">For Afiya,</span></span>
+
+      <span class="l-dear">Dear Afiya,</span>
       <div class="l-body-text" id="letterBody">🥳Happy Birthday!🥳Wishing you joy and success always.Tumi ekhon officially aro ek bochor boro,but tumar cuteness ekhono ekdom baby-level😊Always keep smiling...jdio tumi bolo, 'Eto hashle dath pore jaibo😁' You came unknowingly,but will remain forever🤍</div>
       <div class="l-rule"></div>
       <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem;">
         <img src="photos/letter.gif" alt="" style="width:72px;height:72px;object-fit:contain;border-radius:4px;opacity:.9;" onerror="this.style.display='none'"/>
-        <span class="l-sign" id="letterSign">— Nobia (Eugene)</span>
+        <span class="l-sign" id="letterSign">—Nobia (Eugene)</span>
       </div>
-      <span class="l-borahae">보라해 · I purple you · 💜</span>
     </div>
   </div>
 </section>
@@ -692,7 +694,7 @@ body{background:var(--ink);color:var(--t1);font-family:'Lato',sans-serif;font-we
   <div class="section-kr r d2">그녀를 위한 플레이리스트</div>
   <p class="r d3" style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:.3em;color:var(--violet);text-transform:uppercase;margin-bottom:2rem;display:flex;align-items:center;justify-content:center;gap:12px;">
     <span style="flex:1;max-width:70px;height:1px;background:linear-gradient(to right,transparent,rgba(139,56,212,.4))"></span>
-    🎵 গানে ক্লিক করুন — songs/ ফোল্ডারে mp3 রাখুন 💜
+    🎵 Enjoy this playlist 💜
     <span style="flex:1;max-width:70px;height:1px;background:linear-gradient(to left,transparent,rgba(139,56,212,.4))"></span>
   </p>
   <div class="songs-grid r d4" id="songsGrid"></div>
@@ -705,7 +707,7 @@ body{background:var(--ink);color:var(--t1);font-family:'Lato',sans-serif;font-we
 <section class="sec" id="s8" style="min-height:auto;padding:5.5rem 2rem">
   <span class="section-label r">⭐ 소원을 말해봐</span>
   <h2 class="section-title r d1">Birthday <em>Wishes</em></h2>
-  <div class="section-kr r d2">Afiya-র জন্য সবার ভালোবাসা</div>
+  <div class="section-kr r d2">Drop your birthday wishes for Afiya here! 💜</div>
   <div class="wish-wrap">
     <div class="wish-form r d3">
       <input class="wish-name-inp" id="wishName" type="text" placeholder="Your name" maxlength="30"/>
@@ -733,7 +735,7 @@ body{background:var(--ink);color:var(--t1);font-family:'Lato',sans-serif;font-we
     <span style="color:var(--petal);font-size:.8em">오늘도 내일도, 항상 보라해. 💜</span>"
   </div>
   <button class="finale-btn r d3" onclick="grandFinale()">
-    <span class="finale-btn-inner">💜 &nbsp; Celebrate Afiya &nbsp; 💜</span>
+    <span class="finale-btn-inner">💜&nbsp;Click to Celebrate &nbsp;💜</span>
     <div class="finale-btn-glow"></div>
   </button>
   <div class="r d4" style="font-family:'Cinzel',serif;font-size:7px;letter-spacing:.3em;color:var(--t4);margin-top:1.2rem;text-transform:uppercase">Click to launch the celebration ✦ fireworks · hearts · magic</div>
@@ -798,10 +800,43 @@ window.addEventListener('scroll',()=>{
 
 /* ════ HERO CANVAS ════ */
 (()=>{
-  const c=document.getElementById('c1'),x=c.getContext('2d');let strks=[];
-  const init=()=>{c.width=c.offsetWidth;c.height=c.offsetHeight;strks=Array.from({length:14},()=>mk(c));};
-  const mk=c=>({x:Math.random()*c.width,y:Math.random()*c.height,len:60+Math.random()*160,ang:(Math.random()-.5)*.6,spd:.15+Math.random()*.3,a:0,da:.004+Math.random()*.008,col:['rgba(139,56,212,','rgba(196,56,110,','rgba(184,122,232,'][Math.floor(Math.random()*3)]});
-  const draw=()=>{x.clearRect(0,0,c.width,c.height);strks.forEach(s=>{s.a+=s.da;if(s.a<0||s.a>1)s.da*=-1;s.x+=Math.cos(s.ang)*s.spd;s.y+=Math.sin(s.ang)*s.spd;if(s.x<0||s.x>c.width||s.y<0||s.y>c.height)Object.assign(s,mk(c));const g=x.createLinearGradient(s.x,s.y,s.x+Math.cos(s.ang)*s.len,s.y+Math.sin(s.ang)*s.len);g.addColorStop(0,s.col+(s.a*.18)+')');g.addColorStop(1,s.col+'0)');x.globalAlpha=1;x.strokeStyle=g;x.lineWidth=1;x.beginPath();x.moveTo(s.x,s.y);x.lineTo(s.x+Math.cos(s.ang)*s.len,s.y+Math.sin(s.ang)*s.len);x.stroke();});requestAnimationFrame(draw);};
+  const c=document.getElementById('c1'),x=c.getContext('2d');let strks=[],particles=[];
+  const init=()=>{
+    c.width=c.offsetWidth;c.height=c.offsetHeight;
+    strks=Array.from({length:28},()=>mk(c));
+    particles=Array.from({length:60},()=>mkP(c));
+  };
+  const mk=c=>({x:Math.random()*c.width,y:Math.random()*c.height,len:80+Math.random()*220,ang:(Math.random()-.5)*.8,spd:.2+Math.random()*.5,a:0,da:.005+Math.random()*.01,col:['rgba(139,56,212,','rgba(196,56,110,','rgba(184,122,232,','rgba(90,31,168,'][Math.floor(Math.random()*4)]});
+  const mkP=c=>({x:Math.random()*c.width,y:Math.random()*c.height,r:.8+Math.random()*2.2,a:Math.random(),da:.003+Math.random()*.008,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4,col:['rgba(184,122,232,','rgba(219,191,245,','rgba(196,56,110,','rgba(255,255,255,'][Math.floor(Math.random()*4)]});
+  const draw=()=>{
+    x.clearRect(0,0,c.width,c.height);
+    /* streaks */
+    strks.forEach(s=>{
+      s.a+=s.da;if(s.a<0||s.a>1)s.da*=-1;
+      s.x+=Math.cos(s.ang)*s.spd;s.y+=Math.sin(s.ang)*s.spd;
+      if(s.x<-50||s.x>c.width+50||s.y<-50||s.y>c.height+50)Object.assign(s,mk(c));
+      const g=x.createLinearGradient(s.x,s.y,s.x+Math.cos(s.ang)*s.len,s.y+Math.sin(s.ang)*s.len);
+      g.addColorStop(0,s.col+(s.a*.38)+')');
+      g.addColorStop(1,s.col+'0)');
+      x.globalAlpha=1;x.strokeStyle=g;x.lineWidth=1.4;
+      x.beginPath();x.moveTo(s.x,s.y);x.lineTo(s.x+Math.cos(s.ang)*s.len,s.y+Math.sin(s.ang)*s.len);x.stroke();
+    });
+    /* floating glowing particles */
+    particles.forEach(p=>{
+      p.a+=p.da;if(p.a<0||p.a>1)p.da*=-1;
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0)p.x=c.width;if(p.x>c.width)p.x=0;
+      if(p.y<0)p.y=c.height;if(p.y>c.height)p.y=0;
+      /* glow */
+      const grd=x.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*5);
+      grd.addColorStop(0,p.col+(p.a*.5)+')');
+      grd.addColorStop(1,p.col+'0)');
+      x.globalAlpha=1;x.fillStyle=grd;x.beginPath();x.arc(p.x,p.y,p.r*5,0,Math.PI*2);x.fill();
+      /* core */
+      x.globalAlpha=p.a*.9;x.fillStyle=p.col+'1)';x.beginPath();x.arc(p.x,p.y,p.r,0,Math.PI*2);x.fill();
+    });
+    x.globalAlpha=1;requestAnimationFrame(draw);
+  };
   init();draw();window.addEventListener('resize',init);
 })();
 
@@ -1273,15 +1308,28 @@ const WISHES_KEY='afiya_bday_wishes_2026';
 let allWishes=[];
 
 async function loadWishes(){
+  /* প্রথমে localStorage থেকে লোড করি (সবসময় কাজ করে) */
+  try{
+    const local=localStorage.getItem(WISHES_KEY);
+    if(local)allWishes=JSON.parse(local);
+  }catch(e){allWishes=[];}
+  /* তারপর shared storage থেকে merge করি */
   try{
     const res=await window.storage.get(WISHES_KEY,true);
-    if(res&&res.value){allWishes=JSON.parse(res.value);}
-    else{allWishes=[];}
-  }catch(e){allWishes=[];}
+    if(res&&res.value){
+      const shared=JSON.parse(res.value);
+      /* shared-এ বেশি থাকলে সেটা নাও */
+      if(shared.length>allWishes.length)allWishes=shared;
+    }
+  }catch(e){}
+  /* localStorage-এ সেভ করি */
+  try{localStorage.setItem(WISHES_KEY,JSON.stringify(allWishes));}catch(e){}
   updateWishCount();
 }
 
 async function saveWishes(){
+  /* দুই জায়গায় সেভ করি */
+  try{localStorage.setItem(WISHES_KEY,JSON.stringify(allWishes));}catch(e){}
   try{await window.storage.set(WISHES_KEY,JSON.stringify(allWishes),true);}catch(e){}
 }
 
