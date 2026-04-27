@@ -235,7 +235,7 @@ body{background:var(--ink);color:var(--t1);font-family:'Lato',sans-serif;font-we
 .l-corner.tr{top:-1px;right:-1px;border-width:1px 1px 0 0}
 .l-corner.bl{bottom:-1px;left:-1px;border-width:0 0 1px 1px}
 .l-corner.br{bottom:-1px;right:-1px;border-width:0 1px 1px 0}
-.l-stamp{position:absolute;top:1.6rem;right:1.6rem;width:50px;height:62px;border:1px solid rgba(139,56,212,.3);overflow:hidden;}
+.l-stamp{position:absolute;top:1.6rem;right:1.6rem;width:50px;height:62px;border:1px solid rgba(139,56,212,.3);background:rgba(42,10,98,.4);display:flex;align-items:center;justify-content:center;font-size:1.5rem}
 .l-date{font-family:'Cinzel',serif;font-size:8px;letter-spacing:.45em;color:var(--t4);text-transform:uppercase;margin-bottom:2rem;display:block;}
 .l-dear{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:2.8rem;margin-bottom:1.5rem;display:block;background:linear-gradient(135deg,var(--lavender),var(--mist));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .l-body-text{width:100%;color:var(--t1);font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.1rem;line-height:2.4;letter-spacing:.02em;white-space:pre-wrap;word-break:break-word;}
@@ -350,19 +350,14 @@ body{background:var(--ink);color:var(--t1);font-family:'Lato',sans-serif;font-we
 .w-time{font-family:'Lato',sans-serif;font-size:.7rem;color:var(--t4);margin-top:.2rem;}
 
 /* ═══ SCENE 9 — FINALE ═══ */
-@media(max-width:480px){
-  .gallery{
-    grid-template-columns:1fr 1fr;
-    grid-template-rows:auto;
-    width:100%;
-  }
-  .g-slot:first-child{
-    grid-column:1/-1;
-    grid-row:span 1;
-    min-height:200px;
-  }
-  .g-slot:not(:first-child){min-height:130px;}
-  .g-slot img{object-fit:cover;width:100%;height:100%;}
+#s9{background:var(--mid)}
+.finale-q{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:clamp(1.25rem,3.5vw,2.1rem);line-height:2;max-width:600px;margin:0 auto 3rem;color:var(--t2);}
+.finale-q strong{font-style:normal;font-weight:400;background:linear-gradient(135deg,var(--mist),#fff,var(--blush));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.finale-btn{display:inline-block;font-family:'Cinzel',serif;font-size:11px;letter-spacing:.5em;text-transform:uppercase;color:#fff;cursor:pointer;border:none;padding:0;background:none;position:relative;}
+.finale-btn-inner{display:block;padding:18px 40px;background:linear-gradient(135deg,var(--lift),var(--glow),var(--rose));position:relative;overflow:hidden;transition:all .4s;}
+.finale-btn:hover .finale-btn-inner{transform:scale(1.04);box-shadow:0 0 60px rgba(196,56,110,.5)}
+.finale-btn-glow{position:absolute;inset:0;animation:btnGlow 2s ease-in-out infinite;pointer-events:none;}
+@keyframes btnGlow{0%,100%{box-shadow:0 0 20px rgba(139,56,212,.3)}50%{box-shadow:0 0 50px rgba(196,56,110,.5),0 0 80px rgba(139,56,212,.3)}}
 
 /* ═══ SCENE 10 — CLOSING ═══ */
 #s10{background:var(--void);min-height:100vh;padding-top:3rem;padding-bottom:3rem;}
@@ -623,23 +618,13 @@ body{background:var(--ink);color:var(--t1);font-family:'Lato',sans-serif;font-we
     <div class="letter r d3">
       <div class="l-corner tl"></div><div class="l-corner tr"></div>
       <div class="l-corner bl"></div><div class="l-corner br"></div>
-
-      <!-- ✅ CHANGE 1: stamp emoji → stamp image -->
-      <div class="l-stamp" style="padding:0;">
-       
-      </div>
-
-      <!-- ✅ CHANGE 2: date row with GIF beside it -->
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:2rem;">
-        <span class="l-date" id="letterDate" style="margin-lef:0">13 · July · 2026 &nbsp;·&nbsp; For Afiya,</span>
-         <img src="photos/stamp.jpg" alt="stamp" style="width:50px;height:62px;object-fit:cover;object-position:center top;display:block;opacity:.92;" onerror="this.parentElement.innerHTML='💜'"/>
-      </div>
-
+      <div class="l-stamp">💜</div>
+      <span class="l-date" id="letterDate">13 · July · 2026 &nbsp;·&nbsp; For Afiya, with love</span>
       <span class="l-dear">Dear Afiya,</span>
       <div class="l-body-text" id="letterBody">🥳Happy Birthday!🥳Wishing you joy and success always.Tumi ekhon officially aro ek bochor boro,but tumar cuteness ekhono ekdom baby-level😊Always keep smiling...jdio tumi bolo, 'Eto hashle dath pore jaibo😁' You came unknowingly,but will remain forever🤍</div>
       <div class="l-rule"></div>
       <span class="l-sign" id="letterSign">— Nobia (Eugene)</span>
-      <img src="photos/letter.gif" alt="" style="height:60px;width:auto;border-radius:3px;opacity:0;transition:opacity .5s;" onerror="this.style.display='none'" onload="this.style.opacity='0.9'"/>
+      <span class="l-borahae">보라해 · I purple you · 💜</span>
     </div>
   </div>
 </section>
@@ -792,7 +777,7 @@ window.addEventListener('scroll',()=>{
   init();draw();window.addEventListener('resize',init);
 })();
 
-/* ════ BTS CONSTELLATION ════ */
+/* ════ BTS CONSTELLATION — glow removed, dots clean, lines animated ════ */
 (()=>{
   const c=document.getElementById('c6');if(!c)return;
   const x=c.getContext('2d');
@@ -810,8 +795,11 @@ window.addEventListener('scroll',()=>{
   const draw=()=>{
     x.clearRect(0,0,W,H);tick+=0.018;
     const ctr=pts[pts.length-1];
+
+    /* —— animated dashed lines from center to each member —— */
     pts.slice(0,-1).forEach((p,i)=>{
       const next=pts[(i+1)%7];
+      /* center → member line (dot-dash, animated) */
       const sa=0.45+0.25*Math.sin(tick+p.phase);
       const sg=x.createLinearGradient(ctr.x,ctr.y,p.x,p.y);
       sg.addColorStop(0,'rgba(196,56,110,'+sa+')');
@@ -820,17 +808,24 @@ window.addEventListener('scroll',()=>{
       x.globalAlpha=1;x.strokeStyle=sg;x.lineWidth=1.2;
       x.setLineDash([6,5]);x.lineDashOffset=-tick*18;
       x.beginPath();x.moveTo(ctr.x,ctr.y);x.lineTo(p.x,p.y);x.stroke();
+
+      /* outer ring connecting members (subtle dashed) */
       x.strokeStyle='rgba(139,56,212,'+(0.3+0.2*Math.sin(tick*1.3+i))+')';
       x.lineWidth=.9;x.setLineDash([4,8]);x.lineDashOffset=tick*12;
       x.beginPath();x.moveTo(p.x,p.y);x.lineTo(next.x,next.y);x.stroke();
     });
     x.setLineDash([]);x.lineDashOffset=0;
+
+    /* —— member dots — plain, no glow/radial gradient —— */
     pts.slice(0,-1).forEach(p=>{
+      /* solid dot */
       x.globalAlpha=1;
       x.fillStyle='#dbbff5';
       x.beginPath();x.arc(p.x,p.y,5.5,0,Math.PI*2);x.fill();
+      /* white center pinpoint */
       x.fillStyle='#ffffff';
       x.beginPath();x.arc(p.x,p.y,2.2,0,Math.PI*2);x.fill();
+      /* label — crisp, high contrast */
       x.font='bold 13px "Cinzel",serif';
       x.textAlign='center';
       x.globalAlpha=1;
@@ -839,6 +834,8 @@ window.addEventListener('scroll',()=>{
       x.fillText(p.name,p.x,p.y+26);
       x.shadowBlur=0;
     });
+
+    /* —— Afiya center dot — plain, prominent —— */
     x.globalAlpha=1;
     x.fillStyle='#f5b8d0';
     x.beginPath();x.arc(ctr.x,ctr.y,9,0,Math.PI*2);x.fill();
@@ -850,17 +847,20 @@ window.addEventListener('scroll',()=>{
     x.shadowColor='rgba(0,0,0,.95)';x.shadowBlur=10;
     x.fillText('Afiya',ctr.x,ctr.y+30);
     x.shadowBlur=0;
+
     x.globalAlpha=1;requestAnimationFrame(draw);
   };
   init();draw();new ResizeObserver(init).observe(c);
 })();
 
-/* ════ COUNTDOWN + CAKE ════ */
+/* ════ COUNTDOWN + CAKE — Canvas drawn ════ */
 const BD=new Date('2026-07-13T00:00:00');
 let cakeLaunched=false;
 let totalCandles=17, blownCount=0;
 const candleOut=Array(totalCandles).fill(false);
 let cakeAnimFrame=null, flickerT=0;
+
+/* candle colors cycling */
 const CCOLS=['#f5b8d0','#dbbff5','#e8709a','#b87ae8','#c4386e','#8b38d4','#f5b8d0','#dbbff5'];
 
 function drawCake(){
@@ -870,12 +870,19 @@ function drawCake(){
   const W=cv.width, H=cv.height;
   ctx.clearRect(0,0,W,H);
   flickerT+=0.12;
+
+  /* ── dimensions ── */
   const cx=W/2;
+  // Plate
   const plateW=380, plateH=14, plateY=H-28;
+  // Bot tier
   const botW=340, botH=72, botY=plateY-botH;
+  // Mid tier
   const midW=270, midH=58, midY=botY-midH;
+  // Top tier — must fit 17 candles: 17*(6+3)-3 = 147px, give 220px to be safe
   const topW=220, topH=50, topY=midY-topH;
 
+  /* helper: rounded rect */
   function rRect(x,y,w,h,r,fillStyle,strokeStyle){
     ctx.beginPath();
     ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);
@@ -887,6 +894,7 @@ function drawCake(){
     if(strokeStyle){ctx.strokeStyle=strokeStyle;ctx.lineWidth=2;ctx.stroke();}
   }
 
+  /* helper: frosting drips along top edge */
   function frostDrips(x,y,w,col){
     ctx.fillStyle=col;
     for(let i=0;i<w;i+=18){
@@ -896,6 +904,7 @@ function drawCake(){
     }
   }
 
+  /* ── PLATE ── */
   const pg=ctx.createLinearGradient(cx-plateW/2,plateY,cx+plateW/2,plateY+plateH);
   pg.addColorStop(0,'#2a0a62');pg.addColorStop(1,'#5a1fa8');
   ctx.beginPath();
@@ -903,36 +912,44 @@ function drawCake(){
   ctx.fillStyle=pg;ctx.fill();
   ctx.strokeStyle='rgba(139,56,212,.5)';ctx.lineWidth=1.5;ctx.stroke();
 
+  /* ── BOT TIER ── */
   const bg=ctx.createLinearGradient(cx-botW/2,botY,cx+botW/2,botY+botH);
   bg.addColorStop(0,'#3d0f88');bg.addColorStop(0.5,'#5a1fa8');bg.addColorStop(1,'#2a0a62');
   rRect(cx-botW/2,botY,botW,botH,6,bg,'rgba(139,56,212,.6)');
   frostDrips(cx-botW/2+4,botY,botW-8,'rgba(255,255,255,.25)');
+  // "Happy Birthday Afiya ✦" text
   ctx.font='bold 13px "Cinzel",serif';
   ctx.textAlign='center';ctx.fillStyle='rgba(255,255,255,.75)';
   ctx.fillText('Happy Birthday Afiya ✦',cx,botY+botH/2+5);
 
+  /* ── MID TIER ── */
   const mg=ctx.createLinearGradient(cx-midW/2,midY,cx+midW/2,midY+midH);
   mg.addColorStop(0,'#c4386e');mg.addColorStop(0.5,'#8b38d4');mg.addColorStop(1,'#c4386e');
   rRect(cx-midW/2,midY,midW,midH,6,mg,'rgba(232,112,154,.5)');
   frostDrips(cx-midW/2+4,midY,midW-8,'rgba(255,255,255,.2)');
+  // "17"
   ctx.font='bold 32px "Dancing Script",cursive';
   ctx.fillStyle='rgba(255,255,255,.95)';
   ctx.shadowColor='rgba(196,56,110,.9)';ctx.shadowBlur=16;
   ctx.fillText('17',cx,midY+midH/2+11);
   ctx.shadowBlur=0;
 
+  /* ── TOP TIER ── */
   const tg=ctx.createLinearGradient(cx-topW/2,topY,cx+topW/2,topY+topH);
   tg.addColorStop(0,'#5a1fa8');tg.addColorStop(1,'#8b38d4');
   rRect(cx-topW/2,topY,topW,topH,6,tg,'rgba(184,122,232,.6)');
+  // "보라해 💜" text small
   ctx.font='10px "Noto Serif KR",serif';
   ctx.fillStyle='rgba(255,255,255,.55)';ctx.shadowBlur=0;
   ctx.fillText('보라해 💜',cx,topY+topH-8);
 
+  /* ── CANDLES on top tier ── */
   const numC=totalCandles;
+  // Auto-fit: compute candleW+spacing to fill topW with padding
   const padding=10;
   const availW=topW-padding*2;
   const spacing=2;
-  const candleW=Math.floor((availW-spacing*(numC-1))/numC);
+  const candleW=Math.floor((availW-spacing*(numC-1))/numC); // ~10px each
   const totalRowW=numC*(candleW+spacing)-spacing;
   const startX=cx-totalRowW/2;
   const hPat=[22,30,16,26,20,30,16,24,20,30,16,26,20,30,16,26,22];
@@ -940,24 +957,32 @@ function drawCake(){
   for(let i=0;i<numC;i++){
     const ch=hPat[i]||22;
     const cx_c=startX+i*(candleW+spacing)+candleW/2;
-    const cy_bot=topY;
+    const cy_bot=topY; // candle bottom sits on top of top-tier
     const cy_top=cy_bot-ch;
     const col=CCOLS[i%CCOLS.length];
+
+    /* candle body */
     const cg=ctx.createLinearGradient(cx_c-candleW/2,cy_top,cx_c+candleW/2,cy_bot);
     cg.addColorStop(0,col+'ee');cg.addColorStop(1,col+'88');
     rRect(cx_c-candleW/2,cy_top,candleW,ch,2,cg,null);
+    // wax drip
     ctx.fillStyle=col+'99';
     ctx.beginPath();ctx.arc(cx_c,cy_top+3,2.5,0,Math.PI*2);ctx.fill();
+    // wick
     ctx.strokeStyle='#3a1a00';ctx.lineWidth=1;
     ctx.beginPath();ctx.moveTo(cx_c,cy_top);ctx.lineTo(cx_c,cy_top-4);ctx.stroke();
+
+    /* flame */
     if(!candleOut[i]){
       const fl=0.7+0.3*Math.sin(flickerT+i*1.1);
       const flH=12+3*fl, flW=5+fl;
       const fy=cy_top-4;
+      // outer glow
       const glow=ctx.createRadialGradient(cx_c,fy-flH/2,0,cx_c,fy-flH/2,flW*2.5);
       glow.addColorStop(0,'rgba(255,200,50,.45)');
       glow.addColorStop(1,'rgba(255,100,0,0)');
       ctx.fillStyle=glow;ctx.beginPath();ctx.ellipse(cx_c,fy-flH/2,flW*2.5,flH*1.2,0,0,Math.PI*2);ctx.fill();
+      // flame body
       const fg=ctx.createRadialGradient(cx_c,fy-flH*.6,0,cx_c,fy,flH);
       fg.addColorStop(0,'#fffde7');fg.addColorStop(0.3,'#ffe066');fg.addColorStop(0.7,'#ff8c00');fg.addColorStop(1,'rgba(255,60,0,0)');
       ctx.fillStyle=fg;
@@ -969,12 +994,14 @@ function drawCake(){
     }
   }
 
+  /* store candle hit areas for click */
   cv._candleAreas=[];
   for(let i=0;i<numC;i++){
     const ch=hPat[i]||22;
     const cx_c=startX+i*(candleW+spacing)+candleW/2;
     cv._candleAreas.push({x:cx_c-10,y:topY-ch-20,w:20,h:ch+24,i});
   }
+
   cakeAnimFrame=requestAnimationFrame(drawCake);
 }
 
@@ -1013,6 +1040,10 @@ function allBlown(){
   setTimeout(()=>{launchFW();spawnPetals(120,4000);showBanner();},600);
 }
 
+/* dummy — no longer used but kept for safety */
+function buildCandles(){}
+const totalCandlesOld=17;
+
 function tickCD(){
   const diff=BD-new Date();
   if(diff<=0){
@@ -1033,13 +1064,13 @@ function tickCD(){
 }
 tickCD();setInterval(tickCD,1000);
 
-/* ════ GALLERY ════ */
+/* ════ GALLERY — thumbnail grid + lightbox with nav ════ */
 const PHOTOS=[
   'photos/photo1.jpg','photos/photo2.jpg','photos/photo3.jpg',
   'photos/photo4.jpg','photos/photo5.jpg'
 ];
 let lbIdx=0;
-const loadedPhotos=[];
+const loadedPhotos=[]; // track which photos actually loaded
 
 function buildGallery(){
   const g=document.getElementById('gallery');g.innerHTML='';
@@ -1075,12 +1106,14 @@ function lbNext(){openLb((lbIdx+1)%PHOTOS.length);}
 function lbPrev(){openLb((lbIdx-1+PHOTOS.length)%PHOTOS.length);}
 
 document.getElementById('lb').addEventListener('click',e=>{if(e.target===e.currentTarget)closeLb();});
+/* swipe support */
 let lbTouchX=0;
 document.getElementById('lb').addEventListener('touchstart',e=>{lbTouchX=e.touches[0].clientX;},{passive:true});
 document.getElementById('lb').addEventListener('touchend',e=>{
   const dx=e.changedTouches[0].clientX-lbTouchX;
   if(Math.abs(dx)>50){dx<0?lbNext():lbPrev();}
 },{passive:true});
+/* keyboard nav */
 document.addEventListener('keydown',e=>{
   if(!document.getElementById('lb').classList.contains('open'))return;
   if(e.key==='ArrowRight')lbNext();
@@ -1111,11 +1144,16 @@ MEMBERS.forEach(m=>{
   document.getElementById('mCards').appendChild(c);
 });
 
-/* ════ DEFAULT BIRTHDAY THEME AUDIO ════ */
+/* ════ DEFAULT BIRTHDAY THEME AUDIO ════
+   birthday.mp3 ফাইল রুট ফোল্ডারে রাখো
+   Player-এর ▶ বাটনে ক্লিক করলে এটা বাজবে (default)
+   Playlist থেকে কোনো গান বাছলে সেটা replace করবে
+════════════════════════════════════════ */
 const bdAud=new Audio('birthday.mp3');
 bdAud.volume=0.8;
-let bdMode=true;
+let bdMode=true; // true = birthday theme is loaded in player
 
+/* player UI — show birthday theme as default */
 document.getElementById('pTitle').textContent='🎂 Birthday Theme 💜';
 document.getElementById('pStatus').textContent='tap ▶ to play';
 document.getElementById('pDisc').querySelector('.p-disc-emoji').textContent='🎂';
@@ -1134,6 +1172,7 @@ const SONGS=[
 const aud=new Audio();aud.volume=0.8;
 let curIdx=-1,isPlaying=false,timerRAF=null;
 
+/* birthday theme events */
 bdAud.addEventListener('ended',()=>{bdMode=true;uiOffBD();});
 bdAud.addEventListener('playing',()=>{if(bdMode){document.getElementById('pPlay').textContent='⏸';document.getElementById('pDisc').classList.add('spinning');document.getElementById('pBars').classList.remove('off');document.getElementById('pStatus').textContent='♪ now playing';}});
 bdAud.addEventListener('pause',()=>{if(bdMode){document.getElementById('pPlay').textContent='▶';document.getElementById('pDisc').classList.remove('spinning');document.getElementById('pBars').classList.add('off');document.getElementById('pStatus').textContent='paused';}});
@@ -1152,6 +1191,7 @@ SONGS.forEach((s,i)=>{
 });
 
 function startSong(idx){
+  /* stop birthday theme if playing */
   if(bdMode){bdAud.pause();bdAud.currentTime=0;bdMode=false;}
   aud.pause();curIdx=idx;aud.src=SONGS[idx].file;aud.currentTime=0;
   const p=aud.play();if(p)p.catch(()=>{});isPlaying=true;
@@ -1163,6 +1203,7 @@ function pauseSong(){if(!isPlaying)return;aud.pause();}
 function resumeSong(){if(isPlaying||curIdx<0)return;const p=aud.play();if(p)p.catch(()=>{});isPlaying=true;}
 function togglePlay(){
   if(bdMode){
+    /* birthday theme mode */
     if(bdAud.paused){const p=bdAud.play();if(p)p.catch(()=>{});}
     else{bdAud.pause();}
     return;
@@ -1183,7 +1224,12 @@ function uiAllOff(){document.querySelectorAll('.song-card').forEach(c=>c.classLi
 function uiOn(idx){uiAllOff();document.getElementById('sc'+idx).classList.add('playing');document.getElementById('sb'+idx).textContent='⏸';document.getElementById('pPlay').textContent='⏸';document.getElementById('pDisc').classList.add('spinning');document.getElementById('pBars').classList.remove('off');document.getElementById('pStatus').textContent='♪ now playing';}
 function uiOff(idx){if(idx>=0){document.getElementById('sc'+idx).classList.remove('playing');document.getElementById('sb'+idx).textContent='▶';}document.getElementById('pPlay').textContent='▶';document.getElementById('pDisc').classList.remove('spinning');document.getElementById('pBars').classList.add('off');document.getElementById('pStatus').textContent='paused';}
 
-/* ════ GUESTBOOK WISHES ════ */
+/* ════════════════════════════════════════
+   GUESTBOOK WISHES
+   — wishes stored in shared Artifact storage
+   — সেন্ড করার পর শুধু modal-এ দেখাবে
+   — প্রতিবার ঢুকলেও wishes থাকবে
+════════════════════════════════════════ */
 const WISHES_KEY='afiya_bday_wishes_2026';
 let allWishes=[];
 
@@ -1241,6 +1287,7 @@ async function addWish(){
   await saveWishes();
   updateWishCount();
   spawnPetals(30);
+  /* সেন্ট মেসেজ দেখাও */
   const sentMsg=document.getElementById('wishSentMsg');
   sentMsg.textContent='💜 Wish sent! Click "View All Wishes" to see it.';
   sentMsg.style.opacity='1';
@@ -1292,6 +1339,7 @@ function launchFW(){
 function spawnPetals(n,spreadMs=3000){
   const shapes=['💜','✨','🌸','⭐','💫','🎊','🎉','💕'];
   for(let i=0;i<n;i++){
+    /* stagger spawn time evenly over spreadMs */
     const spawnDelay=Math.random()*spreadMs;
     setTimeout(()=>{
       const p=document.createElement('div');p.className='ls';
