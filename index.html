@@ -634,7 +634,19 @@ body{background:var(--ink);color:var(--t1);font-family:'Lato',sans-serif;font-we
       <div class="l-body-text" id="letterBody">🥳Happy Birthday!🥳Wishing you joy and success always.Tumi ekhon officially aro ek bochor boro,but tumar cuteness ekhono ekdom baby-level😊Always keep smiling...jdio tumi bolo, 'Eto hashle dath pore jaibo😁' You came unknowingly,but will remain forever🤍</div>
       <div class="l-rule"></div>
       <span class="l-sign" id="letterSign">— Nobia (Eugene)</span>
-      <span class="l-borahae">보라해 · I purple you · 💜</span>
+      @media(max-width:480px){
+  .gallery{
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:auto;
+    width:100%;
+  }
+  .g-slot:first-child{
+    grid-column:1/-1;
+    grid-row:span 1;
+    min-height:200px;
+  }
+  .g-slot:not(:first-child){min-height:130px;}
+  .g-slot img{object-fit:cover;width:100%;height:100%;}
     </div>
   </div>
 </section>
