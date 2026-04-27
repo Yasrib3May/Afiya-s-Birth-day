@@ -235,7 +235,8 @@ body{background:var(--ink);color:var(--t1);font-family:'Lato',sans-serif;font-we
 .l-corner.tr{top:-1px;right:-1px;border-width:1px 1px 0 0}
 .l-corner.bl{bottom:-1px;left:-1px;border-width:0 0 1px 1px}
 .l-corner.br{bottom:-1px;right:-1px;border-width:0 1px 1px 0}
-.l-stamp{position:absolute;top:1.6rem;right:1.6rem;width:50px;height:62px;border:1px solid rgba(139,56,212,.3);background:rgba(42,10,98,.4);display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+.l-stamp{position:absolute;top:1.6rem;right:1.6rem;width:54px;height:66px;border:1px solid rgba(139,56,212,.3);background:rgba(42,10,98,.4);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.l-stamp img{width:100%;height:100%;object-fit:cover;display:block;}
 .l-date{font-family:'Cinzel',serif;font-size:8px;letter-spacing:.45em;color:var(--t4);text-transform:uppercase;margin-bottom:2rem;display:block;}
 .l-dear{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:2.8rem;margin-bottom:1.5rem;display:block;background:linear-gradient(135deg,var(--lavender),var(--mist));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .l-body-text{width:100%;color:var(--t1);font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.1rem;line-height:2.4;letter-spacing:.02em;white-space:pre-wrap;word-break:break-word;}
@@ -391,52 +392,84 @@ body{background:var(--ink);color:var(--t1);font-family:'Lato',sans-serif;font-we
 @keyframes lsFall{0%{opacity:1;transform:translateY(0) rotate(0deg)}100%{opacity:0;transform:translateY(110vh) rotate(720deg)}}
 
 /* ═══ RESPONSIVE ═══ */
-@media(max-width:480px){
-  .sec{padding:3.2rem 1.2rem 2.8rem !important;}
-  body{cursor:auto}
-  #cur,#cur2,#sidenav{display:none}
-  .hero-name{font-size:clamp(5rem,22vw,7rem)}
+@media(max-width:768px){
+  /* general */
+  .sec{padding:3.5rem 1rem 3rem !important;}
+  #sidenav{display:none}
+
+  /* hero */
+  .hero-name{font-size:clamp(5rem,20vw,8rem)}
+  .hero-sub{font-size:clamp(.95rem,4vw,1.3rem)}
+
+  /* countdown */
   .clock{grid-template-columns:repeat(2,1fr)}
-  .ck{padding:1.8rem .5rem 1.4rem}
-  .ck-n{font-size:clamp(2.2rem,12vw,3.5rem)}
+  .ck{padding:1.8rem .6rem 1.4rem}
+  .ck-n{font-size:clamp(2.4rem,11vw,4rem)}
   .clock-bottom{flex-direction:column;gap:.4rem;text-align:center}
+
+  /* cake canvas — scale down nicely */
+  #cakeCanvas{width:100%!important;height:auto!important;}
+
+  /* universe — keep 2 col but smaller padding */
+  .universe{grid-template-columns:1fr 1fr}
+  .u-cell{padding:1.6rem 1.2rem}
+  .u-num{font-size:5rem}
+
+  /* gallery — featured top full width, 2x2 below */
+  .gallery{
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:200px 130px 130px;
+  }
+  .g-slot:first-child{grid-column:1/-1;grid-row:span 1;}
+  .g-slot:not(:first-child){min-height:130px;}
+
+  /* letter */
+  .letter{padding:2.2rem 1.4rem 1.8rem}
+  .l-dear{font-size:2.2rem}
+  .l-stamp{width:40px;height:50px;top:1rem;right:1rem;}
+  .l-body-text{font-size:1rem;line-height:2.1}
+
+  /* BTS */
+  .m-grid{flex-wrap:wrap;gap:4px}
+  .mc{flex:0 0 calc(25% - 3px);padding:.8rem .3rem .7rem}
+  .mc:nth-child(5),.mc:nth-child(6),.mc:nth-child(7){flex:0 0 calc(33.33% - 3px)}
+  .constellation{padding-bottom:60%}
+
+  /* playlist */
+  .songs-grid{grid-template-columns:1fr}
+  .song-desc{display:none}
+  .song-card{padding:1rem 1.2rem}
+
+  /* player */
+  #player{min-width:96vw;padding:8px 14px;gap:10px;border-radius:16px;bottom:.8rem}
+  .p-vol{display:none}
+  .p-title{max-width:120px}
+
+  /* wishes */
+  .wish-form{flex-wrap:wrap}
+  .wish-name-inp{width:100%;border-right:none;border-bottom:1px solid rgba(139,56,212,.2);}
+  .wish-input{width:100%;min-width:0;}
+  .wish-send{width:100%;border-left:none;border-top:1px solid rgba(139,56,212,.2);text-align:center;}
+
+  /* section titles */
+  .section-title{font-size:clamp(2.2rem,8vw,3.5rem)}
+
+  /* lightbox nav on mobile */
+  .lb-btn{padding:8px 16px;font-size:7px}
+  #lb img{max-width:95vw;max-height:75vh;}
+}
+
+@media(max-width:400px){
+  .hero-name{font-size:clamp(4rem,18vw,6rem)}
   .universe{grid-template-columns:1fr}
   .u-cell:nth-child(even){border-right:1px solid rgba(139,56,212,.12)}
   .u-cell:nth-child(3){border-bottom:1px solid rgba(139,56,212,.12)}
   .u-cell:nth-child(4){border-bottom:none}
-  .gallery{grid-template-columns:1fr 1fr;}
-  .g-slot:first-child{grid-column:1/-1;}
-  .g-slot:not(:first-child){min-height:130px;}
-  .letter{padding:2rem 1.2rem 1.5rem}
-  .l-dear{font-size:2rem}
-  .l-stamp{display:none}
-  .m-grid{flex-wrap:wrap}
-  .mc{flex:0 0 calc(25% - 4px);padding:.8rem .4rem .7rem}
-  .mc:nth-child(5),.mc:nth-child(6),.mc:nth-child(7){flex:0 0 calc(33.33% - 4px)}
-  .songs-grid{grid-template-columns:1fr}
-  .song-desc{display:none}
-  #player{min-width:94vw;padding:8px 12px;gap:8px;border-radius:14px;bottom:.8rem}
-  .p-info,.p-vol{display:none}
-  .candles-row{gap:4px}
-  .candle-body.small{height:20px}
-  .candle-body.med{height:26px}
-  .candle-body.tall{height:32px}
-  .flame-inner{width:7px;height:11px}
-  .cake-top{width:160px;height:42px}
-  .cake-mid{width:220px;height:50px}
-  .cake-bot{width:280px;height:58px}
-  .cake-plate{width:310px}
-  .wish-name-inp{width:100px}
-  .section-title{font-size:clamp(2rem,8vw,3.2rem)}
-}
-@media(min-width:481px) and (max-width:768px){
-  .universe{grid-template-columns:1fr}
-  .u-cell:nth-child(3){border-bottom:1px solid rgba(139,56,212,.12)}
-  .u-cell:nth-child(4){border-bottom:none}
-  .songs-grid{grid-template-columns:1fr}
-  .clock{grid-template-columns:repeat(2,1fr)}
-  #sidenav,#player .p-info,#player .p-vol{display:none}
-  #player{min-width:92vw;border-radius:16px}
+  .gallery{
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:180px 120px 120px;
+  }
+  .mc{flex:0 0 calc(25% - 3px)}
 }
 </style>
 </head>
@@ -618,12 +651,15 @@ body{background:var(--ink);color:var(--t1);font-family:'Lato',sans-serif;font-we
     <div class="letter r d3">
       <div class="l-corner tl"></div><div class="l-corner tr"></div>
       <div class="l-corner bl"></div><div class="l-corner br"></div>
-      <div class="l-stamp">💜</div>
-      <span class="l-date" id="letterDate">13 · July · 2026 &nbsp;·&nbsp; For Afiya, with love</span>
-      <span class="l-dear">Dear Afiya,</span>
+      <div class="l-stamp"><img src="photos/stamp.jpg" alt="stamp" onerror="this.style.opacity='.3'" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
+      <span class="l-date" id="letterDate">13 July 2026<br/>For Afiya,</span>
+       <span class="l-dear">Dear Afiya,</span>
       <div class="l-body-text" id="letterBody">🥳Happy Birthday!🥳Wishing you joy and success always.Tumi ekhon officially aro ek bochor boro,but tumar cuteness ekhono ekdom baby-level😊Always keep smiling...jdio tumi bolo, 'Eto hashle dath pore jaibo😁' You came unknowingly,but will remain forever🤍</div>
       <div class="l-rule"></div>
-      <span class="l-sign" id="letterSign">— Nobia (Eugene)</span>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem;">
+        <img src="photos/letter.gif" alt="" style="width:72px;height:72px;object-fit:contain;border-radius:4px;opacity:.9;" onerror="this.style.display='none'"/>
+        <span class="l-sign" id="letterSign">— Nobia (Eugene)</span>
+      </div>
       <span class="l-borahae">보라해 · I purple you · 💜</span>
     </div>
   </div>
@@ -866,6 +902,9 @@ const CCOLS=['#f5b8d0','#dbbff5','#e8709a','#b87ae8','#c4386e','#8b38d4','#f5b8d
 function drawCake(){
   const cv=document.getElementById('cakeCanvas');
   if(!cv)return;
+  /* responsive: match container width */
+  const containerW=Math.min(cv.parentElement.offsetWidth||500,500);
+  if(cv.width!==containerW){cv.width=containerW;cv.height=Math.round(containerW*0.72);}
   const ctx=cv.getContext('2d');
   const W=cv.width, H=cv.height;
   ctx.clearRect(0,0,W,H);
