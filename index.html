@@ -1128,7 +1128,7 @@ function buildGallery(){
   PHOTOS.forEach((path,i)=>{
     const s=document.createElement('div');s.className='g-slot';
     const img=document.createElement('img');img.alt='Afiya';img.src=path;
-    const badge=document.createElement('span');badge.className='g-badge';badge.textContent='✦';
+    const badge=document.createElement('span');badge.className='g-badge';badge.textContent='💜';
     img.onload=()=>{
       img.style.opacity='1';
       if(!loadedPhotos.includes(i))loadedPhotos.push(i);
