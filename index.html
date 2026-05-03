@@ -368,7 +368,7 @@ textarea.wish-input{vertical-align:top;resize:none;}
 .wm-item{padding:1.2rem 0;border-bottom:1px solid rgba(42,10,98,.4);display:flex;gap:14px;}
 .w-avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--lift),var(--glow));display:flex;align-items:center;justify-content:center;font-family:'Dancing Script',cursive;font-size:1rem;color:#fff;flex-shrink:0}
 .w-name{font-family:'Cinzel',serif;font-size:8px;letter-spacing:.15em;color:var(--petal);text-transform:uppercase;margin-bottom:.25rem;}
-.w-text{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--t1);line-height:1.8;}
+.w-text{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--t1);line-height:1.8;white-space:pre-wrap;word-break:break-word;}
 .w-time{font-family:'Lato',sans-serif;font-size:.7rem;color:var(--t4);margin-top:.2rem;}
 
 /* ═══ SCENE 9 — FINALE ═══ */
@@ -646,7 +646,7 @@ textarea.wish-input{vertical-align:top;resize:none;}
     </div>
     <div class="u-cell">
       <span class="u-tag">The stars say —</span>
-      <blockquote class="u-quote">"You were born on a day the universe rearranged itself. Everything you touch becomes more beautiful."</blockquote>
+      <blockquote class="u-quote">"Allah created you with care — and in you, He placed something truly special. May your life reflect that beauty always."</blockquote>
       <span class="u-attr">— written for Afiya 💜</span>
     </div>
   </div>
@@ -677,7 +677,7 @@ textarea.wish-input{vertical-align:top;resize:none;}
       <span class="l-date" id="letterDate"><span class="l-date-day">13 · July · 2026</span><span class="l-date-sub">For Afiya,</span></span>
 
       <span class="l-dear">Dear Afiya,</span>
-      <div class="l-body-text" id="letterBody">🥳Happy Birthday!🥳Wishing you joy and success always.Tumi ekhon officially aro ek bochor boro,but tumar cuteness ekhono ekdom baby-level😊Always keep smiling...jdio tumi bolo, 'Eto hashle dath pore jaibo😁' You came unknowingly,but will remain forever🤍</div>
+      <div class="l-body-text" id="letterBody">🥳Happy Birthday!🥳Wishing you joy and success always.Tumi ekhon officially aro ek bochor boro,but tumar cuteness ekhono ekdom baby-level😊Always keep smiling...jdio tumi bolo, 'Eto hashle dath pore jaibo😁'. You came unknowingly, but will always hold a special place in my heart 🤍</div>
       <div class="l-rule"></div>
       <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem;">
         <img src="photos/letter.gif" alt="" style="width:72px;height:72px;object-fit:contain;border-radius:4px;opacity:.9;" onerror="this.style.display='none'"/>
@@ -748,12 +748,12 @@ textarea.wish-input{vertical-align:top;resize:none;}
 <section class="sec" id="s9" style="min-height:auto;padding:5.5rem 2rem">
   <span class="section-label r">🎆 Grand Finale</span>
   <h2 class="section-title r d1">Celebrate <em>Afiya</em></h2>
-  <div class="finale-q r d2">
-    "생일 축하해, Afiya.<br/>
-    <strong>You are the universe itself —</strong><br/>
-    infinite, dazzling, and utterly irreplaceable.<br/>
-    <span style="color:var(--petal);font-size:.8em">오늘도 내일도, 항상 보라해. 💜</span>"
-  </div>
+ <div class="finale-q r d2">
+  "생일 축하해, Afiya.<br/>
+  <strong>May Allah write only goodness in your story —</strong><br/>
+  every chapter brighter than the last.<br/>
+  <span style="color:var(--petal);font-size:.8em">오늘도 내일도, 항상 보라해. 💜</span>"
+</div>
   <button class="finale-btn r d3" onclick="grandFinale()">
     <span class="finale-btn-inner">💜&nbsp;Click to Celebrate &nbsp;💜</span>
     <div class="finale-btn-glow"></div>
@@ -769,7 +769,7 @@ textarea.wish-input{vertical-align:top;resize:none;}
     <div class="c-borahae-en r d1">I Purple You · Afiya</div>
     <div class="c-name r d2">Afiya</div>
     <div class="c-hearts r d3"><div class="ch"></div><div class="ch"></div><div class="ch"></div></div>
-<p class="c-poem r d4">
+ <p class="c-poem r d4">
   May Allah grant you joy beyond measure<br/>
   <em>and peace that never leaves your heart.</em><br/><br/>
   You deserve every good thing coming your way<br/>
@@ -777,7 +777,7 @@ textarea.wish-input{vertical-align:top;resize:none;}
   Somewhere, someone smiles<br/>
   <em>just because you exist. 💜</em>
 </p>
-    <div class="c-army r d5">💜 &nbsp; ARMY Forever &nbsp; · &nbsp; 방탄소년단 &nbsp; 💜</div>
+    <div class="c-army r d5">💜 &nbsp; Made with love · For Afiya &nbsp; 💜</div>
     <div class="c-credit r d6" style="margin-top:.6rem">Made with every bit of love · 2026</div>
   </div>
 </section>
@@ -1181,9 +1181,9 @@ const MEMBERS=[
   {kr:'진',  en:'Jin',   msg:"Worldwide beautiful Afiya! Your smile could light up the entire universe. Eat well, laugh loudly, and know you are deeply loved. 석진이가 사랑해! 💜"},
   {kr:'슈가',en:'Suga',  msg:"Dreams don't have expiry dates, Afiya. The fire inside you is real and it will take you places. Never let it go out. 💜"},
   {kr:'제이홉',en:'J-Hope',msg:"You are someone's sunshine, Afiya. Your energy, your warmth — it changes the atmosphere of every room you walk into. 💜"},
-  {kr:'지민',en:'Jimin', msg:"You have so much beauty, so much charm, so much heart. Promise me you'll love yourself first — always. 💜"},
-  {kr:'뷔',  en:'V',     msg:"Life is a canvas and you paint it in the most extraordinary colors. Stay weird, stay magical, stay completely yourself. 보라해! 💜"},
-  {kr:'정국',en:'JK',    msg:"Golden girl Afiya — you are brave, talented, and enough. Stay strong and stay magical. 생일 축하합니다! 💜"},
+  {kr:'지민',en:'Jimin', msg:"You have so much beauty, so much charm, so much heart. Promise me you'll always be kind to yourself — you deserve every good thing. 💜"},
+ {kr:'뷔',en:'V', msg:"Life is a canvas and you paint it in the most extraordinary colors. Stay rare, stay you — the world needs exactly that. 보라해! 💜"},
+  {kr:'정국',en:'JK', msg:"Golden girl Afiya — you are brave, talented, and enough. Stay strong, keep going, and know you are truly special. 생일 축하합니다! 💜"},
 ];
 MEMBERS.forEach(m=>{
   const c=document.createElement('div');c.className='mc';
@@ -1303,7 +1303,6 @@ document.getElementById('expandModal').addEventListener('click',function(e){
   if(e.target===this)closeExpandModal();
 });
 
-loadWishes();
 async function loadWishes(){
   try{
     const r=await fetch(JB_URL+'/latest',{
