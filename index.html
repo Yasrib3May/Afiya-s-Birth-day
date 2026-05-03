@@ -232,6 +232,8 @@ body{background:var(--ink);color:var(--t1);font-family:'Lato',sans-serif;font-we
 .l-rule{width:100%;height:1px;background:linear-gradient(to right,transparent,rgba(196,56,110,.4),rgba(139,56,212,.4),transparent);margin:2rem 0}
 .l-sign{font-family:'Dancing Script',cursive;font-size:2rem;font-weight:700;text-align:right;display:block;background:linear-gradient(135deg,var(--petal),var(--blush));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .l-borahae{font-family:'Noto Serif KR',serif;font-size:.8rem;color:var(--t4);text-align:right;letter-spacing:.2em;display:block;margin-top:.4rem;}
+.cursor-blink{display:inline-block;width:2px;height:1.1em;background:var(--lavender);margin-left:2px;vertical-align:text-bottom;animation:cursorBlink .7s ease-in-out infinite;}
+@keyframes cursorBlink{0%,100%{opacity:1}50%{opacity:0}}
 
 /* ═══ SCENE 6 — BTS ═══ */
 #s6{background:linear-gradient(180deg,var(--mid),var(--deep))}
@@ -677,7 +679,7 @@ textarea.wish-input{vertical-align:top;resize:none;}
       <span class="l-date" id="letterDate"><span class="l-date-day">13 · July · 2026</span><span class="l-date-sub">For Afiya,</span></span>
 
       <span class="l-dear">Dear Afiya,</span>
-      <div class="l-body-text" id="letterBody">🥳Happy Birthday!🥳Wishing you joy and success always.Tumi ekhon officially aro ek bochor boro,but tumar cuteness ekhono ekdom baby-level😊Always keep smiling...jdio tumi bolo, 'Eto hashle dath pore jaibo😁'. You came unknowingly, but will always hold a special place in my heart 🤍</div>
+      <div class="l-body-text" id="letterBody">Happy Birthday!🥳🥳Wishing you joy and success always.Tumi ekhon officially aro ek bochor boro,but tumar cuteness ekhono ekdom baby-level😊Always keep smiling....jdio tumi bolo, 'Eto hashle dath pore jaibo😁'. You came unknowingly, but will always hold a special place in my heart 🤍</div>
       <div class="l-rule"></div>
       <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem;">
         <img src="photos/letter.gif" alt="" style="width:72px;height:72px;object-fit:contain;border-radius:4px;opacity:.9;" onerror="this.style.display='none'"/>
@@ -1125,7 +1127,39 @@ const PHOTOS=[
 ];
 let lbIdx=0;
 const loadedPhotos=[];
+/* ════ LETTER TYPEWRITER ════ */
+(()=>{
+  const el=document.getElementById('letterBody');
+  if(!el)return;
+  const fullText=el.textContent;
+  el.textContent='';
+  let idx=0,started=false,timer=null;
 
+  const cursor=document.createElement('span');
+  cursor.className='cursor-blink';
+  el.appendChild(cursor);
+
+  function type(){
+    if(idx>=fullText.length){
+      cursor.remove();
+      return;
+    }
+    el.insertBefore(document.createTextNode(fullText[idx++]),cursor);
+    timer=setTimeout(type, idx<20?60:28);
+  }
+
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting&&!started){
+        started=true;
+        setTimeout(type,600);
+        obs.disconnect();
+      }
+    });
+  },{threshold:.3});
+
+  obs.observe(el);
+})();
 function buildGallery(){
   const g=document.getElementById('gallery');g.innerHTML='';
   PHOTOS.forEach((path,i)=>{
