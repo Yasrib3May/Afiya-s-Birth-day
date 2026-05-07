@@ -222,7 +222,7 @@ body{background:var(--ink);color:var(--t1);font-family:'Lato',sans-serif;font-we
 .l-corner.tr{top:-1px;right:-1px;border-width:1px 1px 0 0}
 .l-corner.bl{bottom:-1px;left:-1px;border-width:0 0 1px 1px}
 .l-corner.br{bottom:-1px;right:-1px;border-width:0 1px 1px 0}
-.l-stamp{position:absolute;top:1.6rem;right:1.6rem;width:54px;height:66px;border:1px solid rgba(139,56,212,.3);background:rgba(42,10,98,.4);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.l-stamp{position:absolute;top:1.6rem;right:1.6rem;width:110px;height:110px;border:none;background:transparent;display:flex;align-items:center;justify-content:center;overflow:hidden;}
 .l-stamp img{width:100%;height:100%;object-fit:cover;display:block;}
 .l-date{font-family:'Cinzel',serif;font-size:8px;letter-spacing:.45em;color:var(--t4);text-transform:uppercase;margin-bottom:2rem;display:block;line-height:2;}
 .l-date .l-date-day{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.6rem;font-weight:300;letter-spacing:.06em;background:linear-gradient(135deg,var(--lavender),var(--mist));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;margin-bottom:.1rem;}
@@ -436,7 +436,7 @@ textarea.wish-input{vertical-align:top;resize:none;}
   .g-slot:not(:first-child){min-height:130px;}
   .letter{padding:2.2rem 1.4rem 1.8rem}
   .l-dear{font-size:2.2rem}
-  .l-stamp{width:40px;height:50px;top:1rem;right:1rem;}
+  .l-stamp{width:80px;height:80px;top:1rem;right:1rem;}
   .l-body-text{font-size:1rem;line-height:2.1}
   .m-grid{flex-wrap:wrap;gap:4px}
   .mc{flex:0 0 calc(25% - 3px);padding:.8rem .3rem .7rem}
@@ -509,11 +509,11 @@ textarea.wish-input{vertical-align:top;resize:none;}
 <!-- PASSWORD MODAL -->
 <div id="pwModal">
   <div class="pw-modal-inner">
-    <div class="pw-title">🔐 Protected · শুধুমাত্র অনুমোদিত</div>
+    <div class="pw-title">🔐 Protected ·Just for Afiya</div>
     <div class="pw-sub">Enter the secret password to view all wishes for Afiya 💜</div>
     <div style="position:relative;width:100%;margin-bottom:1rem;">
       <input class="pw-input" id="pwInput" type="password" placeholder="Enter password…" onkeydown="if(event.key==='Enter')checkPw()" style="margin-bottom:0;padding-right:52px;width:100%;"/>
-      <button id="pwToggleBtn" onclick="togglePwVis()" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:17px;color:var(--t3);padding:4px;line-height:1;" title="Show/hide">👁</button>
+      <button id="pwToggleBtn" onclick="togglePwVis()" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:17px;color:var(--t3);padding:4px;line-height:1;" title="Show/hide">👀</button>
     </div>
     <div class="pw-err" id="pwErr"></div>
     <button class="pw-btn" onclick="checkPw()">Unlock 💜</button>
@@ -675,7 +675,7 @@ textarea.wish-input{vertical-align:top;resize:none;}
     <div class="letter r d3">
       <div class="l-corner tl"></div><div class="l-corner tr"></div>
       <div class="l-corner bl"></div><div class="l-corner br"></div>
-      <div class="l-stamp"><img src="photos/stamp.jpg" alt="stamp" onerror="this.style.opacity='.3'" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>
+   <div class="l-stamp" style="border:none;background:transparent;"><img src="photos/stamp.jpg" alt="stamp" onerror="this.style.opacity='.3'" style="width:100%;height:100%;object-fit:contain;display:block;"/></div>
       <span class="l-date" id="letterDate"><span class="l-date-day">13 · July · 2026</span><span class="l-date-sub">For Afiya,</span></span>
 
       <span class="l-dear">Dear Afiya,</span>
@@ -1127,32 +1127,100 @@ const PHOTOS=[
 ];
 let lbIdx=0;
 const loadedPhotos=[];
-/* ════ LETTER TYPEWRITER ════ */
+
+/* ════ LETTER RAIN ANIMATION ════ */
+(()=>{
+  const letter=document.getElementById('s5');
+  if(!letter)return;
+  let raining=false;
+
+  const st=document.createElement('style');
+  st.textContent=`
+    @keyframes rainFall{
+      0%{transform:translateY(-20px);opacity:.8}
+      100%{transform:translateY(100vh);opacity:0}
+    }
+    .rain-drop{
+      position:absolute;
+      top:-20px;
+      width:1.5px;
+      border-radius:2px;
+      pointer-events:none;
+      z-index:3;
+      animation:rainFall linear forwards;
+      background:linear-gradient(to bottom,rgba(255,255,255,.9),rgba(255,255,255,.4),transparent);
+    }
+  `;
+  document.head.appendChild(st);
+
+  function spawnDrop(){
+    const d=document.createElement('div');
+    const left=Math.random()*100;
+    const height=14+Math.random()*22;
+    const dur=.6+Math.random()*1.6;
+    const delay=Math.random()*.5;
+    d.className='rain-drop';
+    d.style.cssText+=`
+      left:${left}%;
+      height:${height}px;
+      animation-duration:${dur}s;
+      animation-delay:${delay}s;
+    `;
+    letter.appendChild(d);
+    setTimeout(()=>d.remove(),(dur+delay+.5)*1000);
+  }
+
+const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting&&!raining){
+        raining=true;
+        let isVisible=true;
+        const exitObs=new IntersectionObserver(en=>{
+          isVisible=en[0].isIntersecting;
+        },{threshold:.1});
+        exitObs.observe(letter);
+        const interval=setInterval(()=>{
+          if(isVisible){
+            for(let i=0;i<3;i++)spawnDrop();
+          } else {
+            clearInterval(interval);
+            raining=false;
+          }
+        },80);
+      }
+    });
+  },{threshold:.3});
+
+  obs.observe(letter);
+})();
+/* ════ LETTER GLOW ANIMATION ════ */
 (()=>{
   const el=document.getElementById('letterBody');
   if(!el)return;
-  const fullText=el.textContent;
-  el.textContent='';
-  let idx=0,started=false,timer=null;
+  const fullText=el.innerHTML;
+  el.style.opacity='0';
+  let started=false;
 
-  const cursor=document.createElement('span');
-  cursor.className='cursor-blink';
-  el.appendChild(cursor);
-
-  function type(){
-    if(idx>=fullText.length){
-      cursor.remove();
-      return;
+  const st=document.createElement('style');
+  st.textContent=`
+    @keyframes glowReveal{
+  0%{opacity:0}
+  100%{opacity:1}
+}
+    .glow-reveal{
+      animation:glowReveal 7s ease forwards;
     }
-    el.insertBefore(document.createTextNode(fullText[idx++]),cursor);
-    timer=setTimeout(type, idx<20?60:28);
-  }
+  `;
+  document.head.appendChild(st);
 
   const obs=new IntersectionObserver(entries=>{
     entries.forEach(e=>{
       if(e.isIntersecting&&!started){
         started=true;
-        setTimeout(type,600);
+        setTimeout(()=>{
+          el.style.opacity='1';
+          el.classList.add('glow-reveal');
+        },400);
         obs.disconnect();
       }
     });
