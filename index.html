@@ -416,6 +416,10 @@ textarea.wish-input{vertical-align:top;resize:none;}
 
 /* ═══ RESPONSIVE ═══ */
 @media(max-width:768px){
+  #s1{justify-content:center;padding-top:0;padding-bottom:0}
+.hero-wrap{margin-top:-3rem}
+.hero-name{font-size:clamp(4.5rem,18vw,8rem)}
+.hero-btn-icon{width:32px;height:32px;font-size:14px}
   .sec{padding:3.5rem 1rem 3rem !important;}
   #sidenav{display:none}
   .hero-name{font-size:clamp(5rem,20vw,8rem)}
@@ -426,26 +430,41 @@ textarea.wish-input{vertical-align:top;resize:none;}
   .clock-bottom{flex-direction:column;gap:.4rem;text-align:center}
   #cakeCanvas{width:100%!important;height:auto!important;}
   .universe{grid-template-columns:1fr 1fr}
-  .u-cell{padding:1.6rem 1.2rem}
-  .u-num{font-size:5rem}
+.u-cell{padding:1rem .8rem}
+.u-num{font-size:5.5rem}
+.u-script{font-size:1.8rem}
+.u-big{font-size:1.3rem}
+.u-sub{font-size:.78rem;line-height:1.6}
+.u-quote{font-size:.88rem;line-height:1.8}
   .gallery{
     grid-template-columns:1fr 1fr;
     grid-template-rows:200px 130px 130px;
   }
+  .mc-kr{font-size:.85rem}
+.mc-en{font-size:8px;letter-spacing:.02em}
   .g-slot:first-child{grid-column:1/-1;grid-row:span 1;}
   .g-slot:not(:first-child){min-height:130px;}
   .letter{padding:2.2rem 1.4rem 1.8rem}
   .l-dear{font-size:2.2rem}
   .l-stamp{width:80px;height:80px;top:1rem;right:1rem;}
+  .letter{padding:1.4rem 1rem 1.2rem}
+.l-dear{font-size:1.8rem;margin-bottom:.8rem}
+.l-date{margin-bottom:1rem}
+.l-body-text{font-size:.88rem;line-height:1.9}
+.l-rule{margin:1rem 0}
+.l-sign{font-size:1.1rem}
+.l-stamp{width:60px;height:60px}
   .l-body-text{font-size:1rem;line-height:2.1}
   .m-grid{flex-wrap:wrap;gap:4px}
-  .mc{flex:0 0 calc(25% - 3px);padding:.8rem .3rem .7rem}
+  .mc{flex:0 0 calc(25% - 3px);padding:.8rem .3rem .7rem;min-width:0}
+.mc-kr{font-size:.82rem;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mc-en{font-size:7px;letter-spacing:0;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .mc:nth-child(5),.mc:nth-child(6),.mc:nth-child(7){flex:0 0 calc(33.33% - 3px)}
   .constellation{padding-bottom:60%}
-  .songs-grid{grid-template-columns:1fr}
+  .songs-grid{grid-template-columns:repeat(2,1fr)}
   .song-desc{display:none}
   .song-card{padding:1rem 1.2rem}
-  #player{min-width:96vw;padding:8px 14px;gap:10px;border-radius:16px;bottom:.8rem}
+ #player{width:calc(100vw - 1.6rem);min-width:unset;padding:8px 12px;gap:8px;border-radius:16px;bottom:.8rem;left:50%;transform:translateX(-50%)}
   .p-vol{display:none}
   .p-title{max-width:120px}
   .wish-form{flex-wrap:wrap}
@@ -455,11 +474,28 @@ textarea.wish-input{vertical-align:top;resize:none;}
   .section-title{font-size:clamp(2.2rem,8vw,3.5rem)}
   .lb-btn{padding:8px 16px;font-size:7px}
   #lb img{max-width:95vw;max-height:75vh;}
+  .finale-btn-inner{padding:14px 24px;font-size:9px}
+.finale-q{font-size:clamp(1rem,4vw,1.5rem);padding:0 .5rem}
+.l-sign{font-size:1.4rem}
+.songs-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:1fr}
+.song-card{padding:.7rem .6rem;gap:.5rem}
+.song-title{font-size:.85rem}
+.song-title-kr{font-size:.62rem}
+.song-num{font-size:.65rem}
+.song-disc{width:34px;height:34px}
+.song-btn{width:30px;height:30px;font-size:11px}
+.song-disc-label{font-size:.85rem}
+.songs-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:1fr}
+.song-card{align-items:center;height:100%}
 }
+
 
 @media(max-width:400px){
   .hero-name{font-size:clamp(4rem,18vw,6rem)}
-  .universe{grid-template-columns:1fr}
+  .universe{grid-template-columns:1fr 1fr}
+.u-cell{padding:.8rem .6rem}
+.u-num{font-size:5.5rem}
+.u-sub{font-size:.72rem}
   .u-cell:nth-child(even){border-right:1px solid rgba(139,56,212,.12)}
   .u-cell:nth-child(3){border-bottom:1px solid rgba(139,56,212,.12)}
   .u-cell:nth-child(4){border-bottom:none}
@@ -509,7 +545,7 @@ textarea.wish-input{vertical-align:top;resize:none;}
 <!-- PASSWORD MODAL -->
 <div id="pwModal">
   <div class="pw-modal-inner">
-    <div class="pw-title">🔐 Protected ·Just for Afiya</div>
+    <div class="pw-title">🔐 Protected · Just for Afiya</div>
     <div class="pw-sub">Enter the secret password to view all wishes for Afiya 💜</div>
     <div style="position:relative;width:100%;margin-bottom:1rem;">
       <input class="pw-input" id="pwInput" type="password" placeholder="Enter password…" onkeydown="if(event.key==='Enter')checkPw()" style="margin-bottom:0;padding-right:52px;width:100%;"/>
@@ -589,10 +625,7 @@ textarea.wish-input{vertical-align:top;resize:none;}
       <span>Enter her world</span>
     </button>
   </div>
-  <div class="scroll-cue">
-    <div class="scroll-cue-mouse"><div class="scroll-cue-wheel"></div></div>
-    <span class="scroll-cue-text">scroll</span>
-  </div>
+
 </section>
 
 <!-- ══ SCENE 2 — COUNTDOWN + CAKE ══ -->
@@ -623,7 +656,7 @@ textarea.wish-input{vertical-align:top;resize:none;}
   </div>
 </section>
 
-<div class="divider r"><div class="div-line"></div><div class="div-dot">✦</div><div class="div-line"></div></div>
+<div class="divider r"><div class="div-line"></div><div class="div-dot">💜</div><div class="div-line"></div></div>
 
 <!-- ══ SCENE 3 ══ -->
 <section class="sec" id="s3" style="min-height:auto;padding:5.5rem 2rem">
@@ -639,7 +672,7 @@ textarea.wish-input{vertical-align:top;resize:none;}
     <div class="u-cell">
        <span class="u-tag">Date of Birth</span>
       <div class="u-big">13 July, 2009  <span style="font-family:'Cinzel',serif;font-size:7.5px;color:var(--t3);letter-spacing:.22em;margin-top:.18rem;">(Monday)</span></div>
-      <div class="u-sub">·Soft · Sincere <br> ·Quietly Extraordinary</div>
+      <div class="u-sub">Soft , Sincere. <br> Quietly Extraordinary.</div>
     </div>
     <div class="u-cell">
       <span class="u-tag">Turning</span>
@@ -654,7 +687,7 @@ textarea.wish-input{vertical-align:top;resize:none;}
   </div>
 </section>
 
-<div class="divider r"><div class="div-line"></div><div class="div-dot">✦</div><div class="div-line"></div></div>
+<div class="divider r"><div class="div-line"></div><div class="div-dot">💜</div><div class="div-line"></div></div>
 
 <!-- ══ SCENE 4 ══ -->
 <section class="sec" id="s4" style="min-height:auto;padding:5.5rem 2rem">
@@ -664,7 +697,7 @@ textarea.wish-input{vertical-align:top;resize:none;}
   <div class="gallery r d3" id="gallery"></div>
 </section>
 
-<div class="divider r"><div class="div-line"></div><div class="div-dot">✦</div><div class="div-line"></div></div>
+<div class="divider r"><div class="div-line"></div><div class="div-dot">💜</div><div class="div-line"></div></div>
 
 <!-- ══ SCENE 5 — LETTER ══ -->
 <section class="sec" id="s5" style="min-height:auto;padding:5.5rem 2rem">
@@ -689,7 +722,7 @@ textarea.wish-input{vertical-align:top;resize:none;}
   </div>
 </section>
 
-<div class="divider r"><div class="div-line"></div><div class="div-dot">✦</div><div class="div-line"></div></div>
+<div class="divider r"><div class="div-line"></div><div class="div-dot">💜</div><div class="div-line"></div></div>
 
 <!-- ══ SCENE 6 — BTS ══ -->
 <section class="sec" id="s6" style="min-height:auto;padding:5.5rem 2rem">
@@ -707,7 +740,7 @@ textarea.wish-input{vertical-align:top;resize:none;}
   </div>
 </section>
 
-<div class="divider r"><div class="div-line"></div><div class="div-dot">✦</div><div class="div-line"></div></div>
+<div class="divider r"><div class="div-line"></div><div class="div-dot">💜</div><div class="div-line"></div></div>
 
 <!-- ══ SCENE 7 — PLAYLIST ══ -->
 <section class="sec" id="s7" style="min-height:auto;padding:5.5rem 2rem">
@@ -723,7 +756,7 @@ textarea.wish-input{vertical-align:top;resize:none;}
   <p class="r d5" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;color:var(--t3);text-align:center;margin-top:2rem;max-width:520px;margin-left:auto;margin-right:auto;line-height:2.1;">These songs carry the same warmth, strength and magic that you do, Afiya. 💜</p>
 </section>
 
-<div class="divider r"><div class="div-line"></div><div class="div-dot">✦</div><div class="div-line"></div></div>
+<div class="divider r"><div class="div-line"></div><div class="div-dot">💜</div><div class="div-line"></div></div>
 
 <!-- ══ SCENE 8 — GUESTBOOK WISHES ══ -->
 <section class="sec" id="s8" style="min-height:auto;padding:5.5rem 2rem">
@@ -744,7 +777,7 @@ textarea.wish-input{vertical-align:top;resize:none;}
   </div>
 </section>
 
-<div class="divider r"><div class="div-line"></div><div class="div-dot">✦</div><div class="div-line"></div></div>
+<div class="divider r"><div class="div-line"></div><div class="div-dot">💜</div><div class="div-line"></div></div>
 
 <!-- ══ SCENE 9 — FINALE ══ -->
 <section class="sec" id="s9" style="min-height:auto;padding:5.5rem 2rem">
@@ -894,9 +927,11 @@ window.addEventListener('scroll',()=>{
       sg.addColorStop(0,'rgba(196,56,110,'+sa+')');
       sg.addColorStop(.5,'rgba(139,56,212,'+(sa*.7)+')');
       sg.addColorStop(1,'rgba(184,122,232,'+(sa*.5)+')');
-      x.globalAlpha=1;x.strokeStyle=sg;x.lineWidth=1.2;
+      x.globalAlpha=1;x.strokeStyle=sg;x.lineWidth=1.8;
+x.shadowColor='rgba(196,56,110,.6)';
+x.shadowBlur=12;
       x.setLineDash([6,5]);x.lineDashOffset=-tick*18;
-      x.beginPath();x.moveTo(ctr.x,ctr.y);x.lineTo(p.x,p.y);x.stroke();
+      x.beginPath();x.moveTo(ctr.x,ctr.y);x.lineTo(p.x,p.y);x.stroke();x.shadowBlur=0;
       x.strokeStyle='rgba(139,56,212,'+(0.3+0.2*Math.sin(tick*1.3+i))+')';
       x.lineWidth=.9;x.setLineDash([4,8]);x.lineDashOffset=tick*12;
       x.beginPath();x.moveTo(p.x,p.y);x.lineTo(next.x,next.y);x.stroke();
@@ -905,9 +940,9 @@ window.addEventListener('scroll',()=>{
     pts.slice(0,-1).forEach(p=>{
       x.globalAlpha=1;
       x.fillStyle='#dbbff5';
-      x.beginPath();x.arc(p.x,p.y,5.5,0,Math.PI*2);x.fill();
-      x.fillStyle='#ffffff';
-      x.beginPath();x.arc(p.x,p.y,2.2,0,Math.PI*2);x.fill();
+x.beginPath();x.arc(p.x,p.y,5.5,0,Math.PI*2);x.fill();
+x.fillStyle='#ffffff';
+x.beginPath();x.arc(p.x,p.y,2.2,0,Math.PI*2);x.fill();
       x.font='bold 13px "Cinzel",serif';
       x.textAlign='center';
       x.globalAlpha=1;
@@ -917,8 +952,12 @@ window.addEventListener('scroll',()=>{
       x.shadowBlur=0;
     });
     x.globalAlpha=1;
+    x.shadowColor='rgba(196,56,110,.9)';
+    x.shadowBlur=24;
     x.fillStyle='#f5b8d0';
     x.beginPath();x.arc(ctr.x,ctr.y,9,0,Math.PI*2);x.fill();
+    x.shadowBlur=0;
+    x.shadowBlur=0;
     x.fillStyle='#ffffff';
     x.beginPath();x.arc(ctr.x,ctr.y,4,0,Math.PI*2);x.fill();
     x.font='bold 15px "Cinzel",serif';
@@ -1156,8 +1195,8 @@ const loadedPhotos=[];
   function spawnDrop(){
     const d=document.createElement('div');
     const left=Math.random()*100;
-    const height=14+Math.random()*22;
-    const dur=.6+Math.random()*1.6;
+    const height=6+Math.random()*8;
+    const dur=2.2+Math.random()*1.6;
     const delay=Math.random()*.5;
     d.className='rain-drop';
     d.style.cssText+=`
@@ -1203,7 +1242,7 @@ const obs=new IntersectionObserver(entries=>{
 
   const st=document.createElement('style');
   st.textContent=`
-    @keyframes glowReveal{
+   @keyframes glowReveal{
   0%{opacity:0}
   100%{opacity:1}
 }
@@ -1233,7 +1272,7 @@ function buildGallery(){
   PHOTOS.forEach((path,i)=>{
     const s=document.createElement('div');s.className='g-slot';
     const img=document.createElement('img');img.alt='Afiya';img.src=path;
-    const badge=document.createElement('span');badge.className='g-badge';badge.textContent='💜';
+    const badge=document.createElement('span');badge.className='g-badge';badge.textContent='';
     img.onload=()=>{
       img.style.opacity='1';
       if(!loadedPhotos.includes(i))loadedPhotos.push(i);
@@ -1455,14 +1494,14 @@ function togglePwVis(){
   const inp=document.getElementById('pwInput');
   const btn=document.getElementById('pwToggleBtn');
   if(inp.type==='password'){inp.type='text';btn.textContent='🙈';}
-  else{inp.type='password';btn.textContent='👁';}
+  else{inp.type='password';btn.textContent='👀';}
 }
 
 /* ── পাসওয়ার্ড Modal ── */
 function openPwModal(){
   const inp=document.getElementById('pwInput');
   inp.value='';inp.type='password';
-  document.getElementById('pwToggleBtn').textContent='👁';
+  document.getElementById('pwToggleBtn').textContent='👀';
   document.getElementById('pwErr').textContent='';
   document.getElementById('pwModal').classList.add('open');
   setTimeout(()=>inp.focus(),200);
@@ -1500,7 +1539,7 @@ function checkPw(){
     errEl.textContent='Incorrect password. Try again 💜';
     document.getElementById('pwInput').value='';
     document.getElementById('pwInput').type='password';
-    document.getElementById('pwToggleBtn').textContent='👁';
+    document.getElementById('pwToggleBtn').textContent='👀';
     document.getElementById('pwInput').focus();
     setTimeout(()=>{errEl.textContent='';},2800);
   }
