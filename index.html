@@ -1623,7 +1623,7 @@ function spawnPetals(n,spreadMs=3000){
     const spawnDelay=Math.random()*spreadMs;
     setTimeout(()=>{
       const p=document.createElement('div');p.className='ls';
-      const emoji=Math.random()>.45,sz=emoji?18+Math.random()*14:5+Math.random()*9,isP=Math.random()>.4,dur=4+Math.random()*5;
+      const emoji=Math.random()>.45,sz=emoji?10+Math.random()*8:3+Math.random()*6,isP=Math.random()>.4,dur=4+Math.random()*5;
       p.style.cssText=`position:fixed;left:${Math.random()*105-2}vw;top:-40px;font-size:${emoji?sz+'px':''};width:${emoji?'auto':sz+'px'};height:${emoji?'auto':sz*1.6+'px'};background:${emoji?'none':isP?'rgba(184,122,232,.55)':'rgba(232,112,154,.55)'};border-radius:${emoji?'0':'50% 50% 40% 40%'};z-index:599;pointer-events:none;animation:lsFall ${dur}s linear forwards;transform:rotate(${(Math.random()-.5)*40}deg)`;
       if(emoji)p.textContent=shapes[Math.floor(Math.random()*shapes.length)];
       document.body.appendChild(p);
