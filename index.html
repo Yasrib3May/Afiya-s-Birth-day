@@ -1642,6 +1642,7 @@ function showBanner(){
 
 let finaleUsedOnce=false;
 function grandFinale(){
+  fwc.width=innerWidth;fwc.height=innerHeight;
   fwc.style.display='block';fwOn=true;fwDraw();
   const W=innerWidth,H=innerHeight;
   if(finaleUsedOnce){spawnPetals(60);setTimeout(()=>burst(W*.5,H*.25,80),200);setTimeout(()=>heartBurst(W*.5,H*.3),900);setTimeout(()=>{fwOn=false;},4000);return;}
