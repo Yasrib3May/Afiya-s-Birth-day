@@ -46,7 +46,7 @@ body{background:var(--ink);color:var(--t1);font-family:'Lato',sans-serif;font-we
 .section-label{font-family:'Cinzel',serif;font-size:9px;letter-spacing:.65em;color:var(--lavender);text-transform:uppercase;margin-bottom:1.1rem;display:inline-flex;align-items:center;gap:14px;font-weight:600;text-shadow:0 0 12px rgba(184,122,232,.4);}
 .section-label::before,.section-label::after{content:'';display:block;width:32px;height:1px;background:linear-gradient(to right,transparent,var(--lavender)88);}
 .section-label::after{background:linear-gradient(to left,transparent,var(--lavender)88)}
-.section-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2.8rem,7vw,5.5rem);letter-spacing:.02em;line-height:1;margin-bottom:.6rem;background:linear-gradient(135deg,#fff 0%,var(--mist) 40%,#fff 60%,var(--blush) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.section-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2.8rem,7vw,5.5rem);letter-spacing:.02em;line-height:1.15;margin-bottom:.6rem;background:linear-gradient(135deg,#fff 0%,var(--mist) 40%,#fff 60%,var(--blush) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .section-title em{font-style:italic;background:linear-gradient(135deg,var(--petal),var(--lavender),var(--petal));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .section-kr{font-family:'Noto Serif KR',serif;font-size:.88rem;color:var(--t3);letter-spacing:.3em;margin-bottom:2rem;display:inline-block;position:relative;}
 .section-kr::after{content:'';position:absolute;bottom:-8px;left:15%;right:15%;height:1px;background:linear-gradient(to right,transparent,var(--violet)55,transparent);}
@@ -631,7 +631,7 @@ textarea.wish-input{vertical-align:top;resize:none;}
 <!-- ══ SCENE 2 — COUNTDOWN + CAKE ══ -->
 <section class="sec" id="s2" style="min-height:auto;padding:5.5rem 2rem">
   <span class="section-label r">💜 시간이 지나도</span>
-  <h2 class="section-title r d1">Counting Down to <em>Afiya</em></h2>
+  <h2 class="section-title r d1" style="padding-bottom:.15em">Counting Down to <em>Afiya</em></h2>
   <div class="section-kr r d2">아피야의 생일까지 남은 시간</div>
   <div class="clock r d3" id="clockEl">
     <div class="ck"><span class="ck-n" id="cdD">--</span><span class="ck-u">Days</span></div>
@@ -1181,15 +1181,15 @@ const loadedPhotos=[];
       100%{transform:translateY(100vh);opacity:0}
     }
     .rain-drop{
-      position:absolute;
-      top:-20px;
-      width:1.5px;
-      border-radius:2px;
-      pointer-events:none;
-      z-index:3;
-      animation:rainFall linear forwards;
-      background:linear-gradient(to bottom,rgba(255,255,255,.9),rgba(255,255,255,.4),transparent);
-    }
+  position:absolute;
+  top:-20px;
+  width:1.5px;
+  border-radius:50% 50% 0 0;
+  pointer-events:none;
+  z-index:3;
+  animation:rainFall linear forwards;
+  background:linear-gradient(to top,rgba(255,255,255,.95),rgba(255,255,255,.3),transparent);
+}
   `;
   document.head.appendChild(st);
 
@@ -1319,13 +1319,13 @@ buildGallery();
 
 /* ════ BTS MEMBERS ════ */
 const MEMBERS=[
-  {kr:'알엠',en:'RM',     msg:"Afiya, your curiosity and intelligence light up every room. You approach life with such open-eyed wonder — never stop exploring. 생일 축하해요! 💜"},
-  {kr:'진',  en:'Jin',   msg:"Worldwide beautiful Afiya! Your smile could light up the entire universe. Eat well, laugh loudly, and know you are deeply loved. 석진이가 사랑해! 💜"},
-  {kr:'슈가',en:'Suga',  msg:"Dreams don't have expiry dates, Afiya. The fire inside you is real and it will take you places. Never let it go out. 💜"},
-  {kr:'제이홉',en:'J-Hope',msg:"You are someone's sunshine, Afiya. Your energy, your warmth — it changes the atmosphere of every room you walk into. 💜"},
-  {kr:'지민',en:'Jimin', msg:"You have so much beauty, so much charm, so much heart. Promise me you'll always be kind to yourself — you deserve every good thing. 💜"},
- {kr:'뷔',en:'V', msg:"Life is a canvas and you paint it in the most extraordinary colors. Stay rare, stay you — the world needs exactly that. 보라해! 💜"},
-  {kr:'정국',en:'JK', msg:"Golden girl Afiya — you are brave, talented, and enough. Stay strong, keep going, and know you are truly special. 생일 축하합니다! 💜"},
+  {kr:'알엠',en:'RM', msg:"Afiya, the way you think, the way you question things, the way you grow — that's something rare. Keep that curiosity alive. The world needs minds like yours. 생일 축하해요! 💜"},
+  {kr:'진',en:'Jin', msg:"Afiya, your smile is something truly special — it lights up every room you walk into. Eat well, laugh often, rest well — and never forget how truly loved you are. 💜"},
+  {kr:'슈가',en:'Suga', msg:"Your dreams are real, Afiya. Every effort you make counts, even the ones nobody sees. Keep going quietly — the results will speak loudly one day. 💜"},
+  {kr:'제이홉',en:'J-Hope', msg:"Afiya, you bring warmth wherever you go! That kind of energy is a gift — don't ever dim it for anyone. Stay bright, stay you! 💜"},
+  {kr:'지민',en:'Jimin', msg:"Afiya, you have such a sincere and gentle heart. Please be as kind to yourself as you are to others — you deserve that kindness more than anyone. 💜"},
+  {kr:'뷔',en:'V', msg:"Stay true to yourself, Afiya. The world already has copies — it needs the original you. You're one of a kind and that's your greatest strength. 보라해! 💜"},
+  {kr:'정국',en:'JK', msg:"Afiya, you're stronger than you think and more loved than you know. Keep going, keep believing in yourself — your best days are still ahead. 생일 축하합니다! 💜"},
 ];
 MEMBERS.forEach(m=>{
   const c=document.createElement('div');c.className='mc';
@@ -1333,7 +1333,13 @@ MEMBERS.forEach(m=>{
   c.onclick=()=>{
     document.querySelectorAll('.mc').forEach(x=>x.classList.remove('on'));c.classList.add('on');
     const p=document.getElementById('msgPanel');p.style.opacity=0;
-    setTimeout(()=>{p.innerHTML=`<span class="mp-who">${m.en} (${m.kr}) says —</span><span class="mp-msg">${m.msg}</span>`;p.style.opacity=1;},260);
+    setTimeout(()=>{
+      p.innerHTML=`<span class="mp-who">${m.en} (${m.kr}) says —</span><span class="mp-msg">${m.msg}</span>`;
+      p.style.opacity=1;
+      setTimeout(()=>{
+        p.scrollIntoView({behavior:'smooth',block:'center'});
+      },100);
+    },260);
   };
   document.getElementById('mCards').appendChild(c);
 });
